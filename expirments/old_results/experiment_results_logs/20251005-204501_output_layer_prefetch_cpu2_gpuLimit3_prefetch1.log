@@ -1,0 +1,64 @@
+no balance_serve
+flashinfer not found, use triton for linux
+using custom modeling_xxx.py.
+using default_optimize_rule for DeepseekV3ForCausalLM
+---------    >>>>>>>>>Initialized CPUInfer with 2 threads.
+----------------------------------------------------------------------------------------------------CPU_INFER in KExpertsCPU: 2
+/workspace/./ktransformers/operators/experts.py:221: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.predictor.load_state_dict(torch.load(self.predictor_path, map_location=self.gpu_device))
+Traceback (most recent call last):
+  File "/workspace/./ktransformers/local_chat.py", line 262, in <module>
+    fire.Fire(local_chat)
+  File "/opt/conda/lib/python3.11/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/local_chat.py", line 129, in local_chat
+    optimize_and_load_gguf(model, optimize_config_path, gguf_path, config, default_device=device)
+  File "/workspace/./ktransformers/optimize/optimize.py", line 137, in optimize_and_load_gguf
+    load_weights(module, weights_loader, device=default_device)
+  File "/workspace/./ktransformers/util/utils.py", line 155, in load_weights
+    load_weights(child, gguf_loader, prefix+name+".", device=device)
+  File "/workspace/./ktransformers/util/utils.py", line 157, in load_weights
+    module.load() # 如果是被注入的模块，则调用其load方法加载权重
+    ^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/operators/base_operator.py", line 63, in load
+    utils.load_weights(child, self.gguf_loader, self.key+".")
+  File "/workspace/./ktransformers/util/utils.py", line 155, in load_weights
+    load_weights(child, gguf_loader, prefix+name+".", device=device)
+  File "/workspace/./ktransformers/util/utils.py", line 155, in load_weights
+    load_weights(child, gguf_loader, prefix+name+".", device=device)
+  File "/workspace/./ktransformers/util/utils.py", line 155, in load_weights
+    load_weights(child, gguf_loader, prefix+name+".", device=device)
+  File "/workspace/./ktransformers/util/utils.py", line 157, in load_weights
+    module.load() # 如果是被注入的模块，则调用其load方法加载权重
+    ^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/operators/base_operator.py", line 63, in load
+    utils.load_weights(child, self.gguf_loader, self.key+".")
+  File "/workspace/./ktransformers/util/utils.py", line 155, in load_weights
+    load_weights(child, gguf_loader, prefix+name+".", device=device)
+  File "/workspace/./ktransformers/util/utils.py", line 157, in load_weights
+    module.load() # 如果是被注入的模块，则调用其load方法加载权重
+    ^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/operators/linear.py", line 1146, in load
+    self.generate_linear.load(w=w)
+  File "/workspace/./ktransformers/operators/linear.py", line 637, in load
+    marlin_q_w, marlin_s, g_idx, sort_indices, _ = marlin_quantize(
+                                                   ^^^^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/ktransformers_ext/operators/custom_marlin/quantize/utils/marlin_utils.py", line 103, in marlin_quantize
+    marlin_q_w = marlin_weights(q_w, size_k, size_n, num_bits,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/ktransformers_ext/operators/custom_marlin/quantize/utils/marlin_utils.py", line 50, in marlin_weights
+    q_w = marlin_permute_weights(q_w, size_k, size_n, perm)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/./ktransformers/ktransformers_ext/operators/custom_marlin/quantize/utils/marlin_utils.py", line 43, in marlin_permute_weights
+    q_w = q_w.reshape((-1, perm.numel()))[:, perm].reshape(q_w.shape)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 356.12 MiB is free. Including non-PyTorch memory, this process has 18.01 GiB memory in use. Of the allocated memory 17.32 GiB is allocated by PyTorch, and 243.92 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+=== PROCESS RETURN CODE: 1 ===

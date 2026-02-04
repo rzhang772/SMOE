@@ -1,0 +1,100 @@
+no balance_serve
+flashinfer not found, use triton for linux
+using custom modeling_xxx.py.
+using default_optimize_rule for DeepseekV3ForCausalLM
+---------    >>>>>>>>>Initialized CPUInfer with 6 threads.
+----------------------------------------------------------------------------------------------------CPU_INFER in KExpertsCPU: 6
+/workspace/./ktransformers/operators/experts.py:221: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.predictor.load_state_dict(torch.load(self.predictor_path, map_location=self.gpu_device))
+generation config can't auto create, make default. Message: /mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config/ does not appear to have a file named generation_config.json. Checkout 'https://huggingface.co//mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config//tree/main' for available files.
+
+📂 Dataset: t1 (2 files)
+input:  - ./moe_analysis/test1/t1/10.txt
+output: - None
+Main thread: MainThread, id: 140381088704320
+/workspace/./ktransformers/util/custom_loader.py:445: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:206.)
+  return torch.from_numpy(data)
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+### 问题陈述
+
+求函数 \( f(x) = 3x^3 - 6x^2 + 2x - 1 \) 在区间 \([0, 2]\) 上的最大值和最小值。
+
+### 解决步骤
+
+#### 第一步：理解问题
+
+我们需要在闭区间 \([0, 2]\) 上找到函数 \( f(x) \) 的最大值和最小值。对于连续函数在闭区间上的极值，可以通过以下步骤找到：
+
+1. 
+prompt eval count:    39 token(s)
+prompt eval duration: 6.55400538444519s
+prompt eval rate:     5.9505596520503055 tokens/s
+eval count:           100 token(s)
+eval duration:        46.25047707557678s
+eval rate:            2.1621398593703676 tokens/s
+00:0.067; 01:0.355; 02:0.346; 03:0.144; 04:0.266; 05:0.335; 06:0.378; 07:0.357; 08:0.364; 09:0.197; 
+10:0.429; 11:0.402; 12:0.432; 13:0.404; 14:0.419; 15:0.226; 16:0.371; 17:0.342; 18:0.395; 19:0.410; 
+20:0.398; 21:0.386; 22:0.405; 23:0.458; 24:0.417; 25:0.412; 26:0.431; 27:0.415; 28:0.346; 29:0.359; 
+30:0.366; 31:0.424; 32:0.374; 33:0.394; 34:0.333; 35:0.369; 36:0.394; 37:0.365; 38:0.412; 39:0.446; 
+40:0.433; 41:0.419; 42:0.438; 43:0.447; 44:0.393; 45:0.418; 46:0.402; 47:0.297; 48:0.380; 49:0.364; 
+50:0.400; 51:0.436; 52:0.391; 53:0.260; 54:0.322; 55:0.342; 56:0.367; 57:0.255; 
+hit rate:     0.367
+
+=== PROCESS RETURN CODE: 0 ===

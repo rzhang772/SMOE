@@ -1,0 +1,819 @@
+no balance_serve
+flashinfer not found, use triton for linux
+using custom modeling_xxx.py.
+using default_optimize_rule for DeepseekV3ForCausalLM
+loading model.embed_tokens.weight to cpu
+loading model.layers.0.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.0.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.0.self_attn.kv_b_proj.weight to cuda
+loading model.layers.0.input_layernorm.weight to cuda
+loading model.layers.0.post_attention_layernorm.weight to cuda
+loading model.layers.1.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.1.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.1.self_attn.kv_b_proj.weight to cuda
+loading model.layers.1.input_layernorm.weight to cuda
+loading model.layers.1.post_attention_layernorm.weight to cuda
+loading model.layers.2.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.2.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.2.self_attn.kv_b_proj.weight to cuda
+loading model.layers.2.input_layernorm.weight to cuda
+loading model.layers.2.post_attention_layernorm.weight to cuda
+loading model.layers.3.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.3.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.3.self_attn.kv_b_proj.weight to cuda
+loading model.layers.3.input_layernorm.weight to cuda
+loading model.layers.3.post_attention_layernorm.weight to cuda
+loading model.layers.4.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.4.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.4.self_attn.kv_b_proj.weight to cuda
+loading model.layers.4.input_layernorm.weight to cuda
+loading model.layers.4.post_attention_layernorm.weight to cuda
+loading model.layers.5.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.5.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.5.self_attn.kv_b_proj.weight to cuda
+loading model.layers.5.input_layernorm.weight to cuda
+loading model.layers.5.post_attention_layernorm.weight to cuda
+loading model.layers.6.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.6.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.6.self_attn.kv_b_proj.weight to cuda
+loading model.layers.6.input_layernorm.weight to cuda
+loading model.layers.6.post_attention_layernorm.weight to cuda
+loading model.layers.7.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.7.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.7.self_attn.kv_b_proj.weight to cuda
+loading model.layers.7.input_layernorm.weight to cuda
+loading model.layers.7.post_attention_layernorm.weight to cuda
+loading model.layers.8.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.8.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.8.self_attn.kv_b_proj.weight to cuda
+loading model.layers.8.input_layernorm.weight to cuda
+loading model.layers.8.post_attention_layernorm.weight to cuda
+loading model.layers.9.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.9.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.9.self_attn.kv_b_proj.weight to cuda
+loading model.layers.9.input_layernorm.weight to cuda
+loading model.layers.9.post_attention_layernorm.weight to cuda
+loading model.layers.10.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.10.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.10.self_attn.kv_b_proj.weight to cuda
+loading model.layers.10.input_layernorm.weight to cuda
+loading model.layers.10.post_attention_layernorm.weight to cuda
+loading model.layers.11.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.11.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.11.self_attn.kv_b_proj.weight to cuda
+loading model.layers.11.input_layernorm.weight to cuda
+loading model.layers.11.post_attention_layernorm.weight to cuda
+loading model.layers.12.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.12.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.12.self_attn.kv_b_proj.weight to cuda
+loading model.layers.12.input_layernorm.weight to cuda
+loading model.layers.12.post_attention_layernorm.weight to cuda
+loading model.layers.13.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.13.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.13.self_attn.kv_b_proj.weight to cuda
+loading model.layers.13.input_layernorm.weight to cuda
+loading model.layers.13.post_attention_layernorm.weight to cuda
+loading model.layers.14.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.14.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.14.self_attn.kv_b_proj.weight to cuda
+loading model.layers.14.input_layernorm.weight to cuda
+loading model.layers.14.post_attention_layernorm.weight to cuda
+loading model.layers.15.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.15.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.15.self_attn.kv_b_proj.weight to cuda
+loading model.layers.15.input_layernorm.weight to cuda
+loading model.layers.15.post_attention_layernorm.weight to cuda
+loading model.layers.16.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.16.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.16.self_attn.kv_b_proj.weight to cuda
+loading model.layers.16.input_layernorm.weight to cuda
+loading model.layers.16.post_attention_layernorm.weight to cuda
+loading model.layers.17.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.17.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.17.self_attn.kv_b_proj.weight to cuda
+loading model.layers.17.input_layernorm.weight to cuda
+loading model.layers.17.post_attention_layernorm.weight to cuda
+loading model.layers.18.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.18.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.18.self_attn.kv_b_proj.weight to cuda
+loading model.layers.18.input_layernorm.weight to cuda
+loading model.layers.18.post_attention_layernorm.weight to cuda
+loading model.layers.19.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.19.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.19.self_attn.kv_b_proj.weight to cuda
+loading model.layers.19.input_layernorm.weight to cuda
+loading model.layers.19.post_attention_layernorm.weight to cuda
+loading model.layers.20.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.20.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.20.self_attn.kv_b_proj.weight to cuda
+loading model.layers.20.input_layernorm.weight to cuda
+loading model.layers.20.post_attention_layernorm.weight to cuda
+loading model.layers.21.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.21.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.21.self_attn.kv_b_proj.weight to cuda
+loading model.layers.21.input_layernorm.weight to cuda
+loading model.layers.21.post_attention_layernorm.weight to cuda
+loading model.layers.22.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.22.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.22.self_attn.kv_b_proj.weight to cuda
+loading model.layers.22.input_layernorm.weight to cuda
+loading model.layers.22.post_attention_layernorm.weight to cuda
+loading model.layers.23.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.23.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.23.self_attn.kv_b_proj.weight to cuda
+loading model.layers.23.input_layernorm.weight to cuda
+loading model.layers.23.post_attention_layernorm.weight to cuda
+loading model.layers.24.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.24.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.24.self_attn.kv_b_proj.weight to cuda
+loading model.layers.24.input_layernorm.weight to cuda
+loading model.layers.24.post_attention_layernorm.weight to cuda
+loading model.layers.25.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.25.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.25.self_attn.kv_b_proj.weight to cuda
+loading model.layers.25.input_layernorm.weight to cuda
+loading model.layers.25.post_attention_layernorm.weight to cuda
+loading model.layers.26.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.26.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.26.self_attn.kv_b_proj.weight to cuda
+loading model.layers.26.input_layernorm.weight to cuda
+loading model.layers.26.post_attention_layernorm.weight to cuda
+loading model.layers.27.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.27.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.27.self_attn.kv_b_proj.weight to cuda
+loading model.layers.27.input_layernorm.weight to cuda
+loading model.layers.27.post_attention_layernorm.weight to cuda
+loading model.layers.28.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.28.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.28.self_attn.kv_b_proj.weight to cuda
+loading model.layers.28.input_layernorm.weight to cuda
+loading model.layers.28.post_attention_layernorm.weight to cuda
+loading model.layers.29.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.29.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.29.self_attn.kv_b_proj.weight to cuda
+loading model.layers.29.input_layernorm.weight to cuda
+loading model.layers.29.post_attention_layernorm.weight to cuda
+loading model.layers.30.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.30.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.30.self_attn.kv_b_proj.weight to cuda
+loading model.layers.30.input_layernorm.weight to cuda
+loading model.layers.30.post_attention_layernorm.weight to cuda
+loading model.layers.31.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.31.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.31.self_attn.kv_b_proj.weight to cuda
+loading model.layers.31.input_layernorm.weight to cuda
+loading model.layers.31.post_attention_layernorm.weight to cuda
+loading model.layers.32.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.32.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.32.self_attn.kv_b_proj.weight to cuda
+loading model.layers.32.input_layernorm.weight to cuda
+loading model.layers.32.post_attention_layernorm.weight to cuda
+loading model.layers.33.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.33.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.33.self_attn.kv_b_proj.weight to cuda
+loading model.layers.33.input_layernorm.weight to cuda
+loading model.layers.33.post_attention_layernorm.weight to cuda
+loading model.layers.34.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.34.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.34.self_attn.kv_b_proj.weight to cuda
+loading model.layers.34.input_layernorm.weight to cuda
+loading model.layers.34.post_attention_layernorm.weight to cuda
+loading model.layers.35.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.35.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.35.self_attn.kv_b_proj.weight to cuda
+loading model.layers.35.input_layernorm.weight to cuda
+loading model.layers.35.post_attention_layernorm.weight to cuda
+loading model.layers.36.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.36.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.36.self_attn.kv_b_proj.weight to cuda
+loading model.layers.36.input_layernorm.weight to cuda
+loading model.layers.36.post_attention_layernorm.weight to cuda
+loading model.layers.37.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.37.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.37.self_attn.kv_b_proj.weight to cuda
+loading model.layers.37.input_layernorm.weight to cuda
+loading model.layers.37.post_attention_layernorm.weight to cuda
+loading model.layers.38.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.38.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.38.self_attn.kv_b_proj.weight to cuda
+loading model.layers.38.input_layernorm.weight to cuda
+loading model.layers.38.post_attention_layernorm.weight to cuda
+loading model.layers.39.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.39.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.39.self_attn.kv_b_proj.weight to cuda
+loading model.layers.39.input_layernorm.weight to cuda
+loading model.layers.39.post_attention_layernorm.weight to cuda
+loading model.layers.40.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.40.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.40.self_attn.kv_b_proj.weight to cuda
+loading model.layers.40.input_layernorm.weight to cuda
+loading model.layers.40.post_attention_layernorm.weight to cuda
+loading model.layers.41.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.41.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.41.self_attn.kv_b_proj.weight to cuda
+loading model.layers.41.input_layernorm.weight to cuda
+loading model.layers.41.post_attention_layernorm.weight to cuda
+loading model.layers.42.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.42.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.42.self_attn.kv_b_proj.weight to cuda
+loading model.layers.42.input_layernorm.weight to cuda
+loading model.layers.42.post_attention_layernorm.weight to cuda
+loading model.layers.43.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.43.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.43.self_attn.kv_b_proj.weight to cuda
+loading model.layers.43.input_layernorm.weight to cuda
+loading model.layers.43.post_attention_layernorm.weight to cuda
+loading model.layers.44.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.44.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.44.self_attn.kv_b_proj.weight to cuda
+loading model.layers.44.input_layernorm.weight to cuda
+loading model.layers.44.post_attention_layernorm.weight to cuda
+loading model.layers.45.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.45.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.45.self_attn.kv_b_proj.weight to cuda
+loading model.layers.45.input_layernorm.weight to cuda
+loading model.layers.45.post_attention_layernorm.weight to cuda
+loading model.layers.46.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.46.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.46.self_attn.kv_b_proj.weight to cuda
+loading model.layers.46.input_layernorm.weight to cuda
+loading model.layers.46.post_attention_layernorm.weight to cuda
+loading model.layers.47.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.47.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.47.self_attn.kv_b_proj.weight to cuda
+loading model.layers.47.input_layernorm.weight to cuda
+loading model.layers.47.post_attention_layernorm.weight to cuda
+loading model.layers.48.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.48.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.48.self_attn.kv_b_proj.weight to cuda
+loading model.layers.48.input_layernorm.weight to cuda
+loading model.layers.48.post_attention_layernorm.weight to cuda
+loading model.layers.49.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.49.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.49.self_attn.kv_b_proj.weight to cuda
+loading model.layers.49.input_layernorm.weight to cuda
+loading model.layers.49.post_attention_layernorm.weight to cuda
+loading model.layers.50.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.50.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.50.self_attn.kv_b_proj.weight to cuda
+loading model.layers.50.input_layernorm.weight to cuda
+loading model.layers.50.post_attention_layernorm.weight to cuda
+loading model.layers.51.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.51.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.51.self_attn.kv_b_proj.weight to cuda
+loading model.layers.51.input_layernorm.weight to cuda
+loading model.layers.51.post_attention_layernorm.weight to cuda
+loading model.layers.52.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.52.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.52.self_attn.kv_b_proj.weight to cuda
+loading model.layers.52.input_layernorm.weight to cuda
+loading model.layers.52.post_attention_layernorm.weight to cuda
+loading model.layers.53.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.53.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.53.self_attn.kv_b_proj.weight to cuda
+loading model.layers.53.input_layernorm.weight to cuda
+loading model.layers.53.post_attention_layernorm.weight to cuda
+loading model.layers.54.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.54.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.54.self_attn.kv_b_proj.weight to cuda
+loading model.layers.54.input_layernorm.weight to cuda
+loading model.layers.54.post_attention_layernorm.weight to cuda
+loading model.layers.55.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.55.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.55.self_attn.kv_b_proj.weight to cuda
+loading model.layers.55.input_layernorm.weight to cuda
+loading model.layers.55.post_attention_layernorm.weight to cuda
+loading model.layers.56.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.56.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.56.self_attn.kv_b_proj.weight to cuda
+loading model.layers.56.input_layernorm.weight to cuda
+loading model.layers.56.post_attention_layernorm.weight to cuda
+loading model.layers.57.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.57.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.57.self_attn.kv_b_proj.weight to cuda
+loading model.layers.57.input_layernorm.weight to cuda
+loading model.layers.57.post_attention_layernorm.weight to cuda
+loading model.layers.58.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.58.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.58.self_attn.kv_b_proj.weight to cuda
+loading model.layers.58.input_layernorm.weight to cuda
+loading model.layers.58.post_attention_layernorm.weight to cuda
+loading model.layers.59.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.59.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.59.self_attn.kv_b_proj.weight to cuda
+loading model.layers.59.input_layernorm.weight to cuda
+loading model.layers.59.post_attention_layernorm.weight to cuda
+loading model.layers.60.self_attn.q_a_layernorm.weight to cuda
+loading model.layers.60.self_attn.kv_a_layernorm.weight to cuda
+loading model.layers.60.self_attn.kv_b_proj.weight to cuda
+loading model.layers.60.input_layernorm.weight to cuda
+loading model.layers.60.post_attention_layernorm.weight to cuda
+loading model.norm.weight to cuda
+generation config can't auto create, make default. Message: /mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config/ does not appear to have a file named generation_config.json. Checkout 'https://huggingface.co//mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config//tree/main' for available files.
+
+📂 Dataset: triviaqa (5 files)
+input:  - ./moe_analysis/test_prompt/triviaqa/0.txt
+output: - None
+The American-born Sinclair who won the Nobel Prize for Literature in 1930 was **Sinclair Lewis**. 
+
+Lewis was the first American to receive the Nobel Prize in Literature, honored for his vigorous and graphic art of description and his ability to create new types of characters with wit and humor. Some of his most famous works include *Main Street* (1920), *Babbitt* (1922), *Arrowsmith* (1925), and *Elmer Gantry* 
+dataset name:              triviaqa
+file name:                 0
+prompt eval count:    18 token(s)
+prompt eval duration: 2.3223609924316406s
+prompt eval rate:     7.750733007771115 tokens/s
+eval count:           100 token(s)
+eval duration:        33.09487867355347s
+eval rate:            3.02161554923334 tokens/s
+input:  - ./moe_analysis/test_prompt/triviaqa/1.txt
+output: - None
+Dame Judi Dench was born in **York, England**, on **9 December 1934**.  
+
+She grew up in York and later attended the **Central School of Speech and Drama** in London before beginning her illustrious career in theatre, film, and television.
+dataset name:              triviaqa
+file name:                 1
+prompt eval count:    14 token(s)
+prompt eval duration: 1.4793541431427002s
+prompt eval rate:     9.463589272990966 tokens/s
+eval count:           56 token(s)
+eval duration:        19.059368133544922s
+eval rate:            2.9381876464959364 tokens/s
+input:  - ./moe_analysis/test_prompt/triviaqa/2.txt
+output: - None
+Dame Judi Dench was born in **York, England**, on **9 December 1934**.  
+
+She grew up in York and later attended the **Central School of Speech and Drama** in London before beginning her illustrious career in theatre, film, and television.
+dataset name:              triviaqa
+file name:                 2
+prompt eval count:    14 token(s)
+prompt eval duration: 1.4813311100006104s
+prompt eval rate:     9.45095927945119 tokens/s
+eval count:           56 token(s)
+eval duration:        18.053274154663086s
+eval rate:            3.10193040443777 tokens/s
+input:  - ./moe_analysis/test_prompt/triviaqa/3.txt
+output: - None
+Angola achieved independence from **Portugal** on **November 11, 1975**, following a prolonged armed struggle and the Carnation Revolution in Portugal (1974), which led to the end of colonial rule. The independence was marked by the proclamation of the **People's Republic of Angola** by the MPLA (Popular Movement for the Liberation of Angola), though a civil war soon followed due to competing nationalist factions.
+dataset name:              triviaqa
+file name:                 3
+prompt eval count:    15 token(s)
+prompt eval duration: 1.5128734111785889s
+prompt eval rate:     9.914907545578714 tokens/s
+eval count:           87 token(s)
+eval duration:        28.3160080909729s
+eval rate:            3.072466984770197 tokens/s
+input:  - ./moe_analysis/test_prompt/triviaqa/4.txt
+output: - None
+The first European country to abolish capital punishment for all crimes was **Portugal**. 
+
+- **1867**: Portugal abolished the death penalty for ordinary crimes (civilian offenses) under the reign of King Luís I.  
+- **1911**: The death penalty was completely abolished for all crimes, including military offenses, following the establishment of the Portuguese Republic.  
+
+Other European nations followed later, but Portugal was the pioneer in fully abolishing capital punishment. 
+
+**Note**: Some sources cite 
+dataset name:              triviaqa
+file name:                 4
+prompt eval count:    14 token(s)
+prompt eval duration: 1.6543047428131104s
+prompt eval rate:     8.462769668539604 tokens/s
+eval count:           100 token(s)
+eval duration:        31.982544660568237s
+eval rate:            3.1267055533355204 tokens/s
+
+📂 Dataset: flores101 (5 files)
+input:  - ./moe_analysis/test_prompt/flores101/0.txt
+output: - None
+斯坦福大学医学院研发的这种可打印微型芯片是一项具有潜在颠覆性的诊断技术突破，其核心特点和意义可从以下几个角度分析：
+
+**1. 技术原理与创新点**
+- **微流控技术简化**：传统细胞分选技术（如流式细胞仪）依赖复杂的光流体系统，而该芯片可能通过打印微结构实现类似功能，将物理筛选（如大小/形状过滤）或表面标记（抗体捕获）整合到微型化设计中。
+
+dataset name:              flores101
+file name:                 0
+prompt eval count:    51 token(s)
+prompt eval duration: 3.770509958267212s
+prompt eval rate:     13.52602182847376 tokens/s
+eval count:           100 token(s)
+eval duration:        31.82938241958618s
+eval rate:            3.14175118705618 tokens/s
+input:  - ./moe_analysis/test_prompt/flores101/1.txt
+output: - None
+这项研究的意义重大，尤其是在解决全球健康不平等问题上。以下是对该研究的深入分析和扩展思考：
+
+---
+
+### **1. 核心价值：早期诊断的变革性影响**
+- **关键数据对比**：  
+  低收入国家乳腺癌5年生存率可能低至40%（如南非、印度），而高收入国家（如美国、英国）可达80%以上。早期检测可将晚期诊断比例从70%降至20%，显著提高生存率。
+- **技术适配性
+dataset name:              flores101
+file name:                 1
+prompt eval count:    41 token(s)
+prompt eval duration: 3.251962184906006s
+prompt eval rate:     12.60777268269036 tokens/s
+eval count:           100 token(s)
+eval duration:        31.791032314300537s
+eval rate:            3.14554113912863 tokens/s
+input:  - ./moe_analysis/test_prompt/flores101/2.txt
+output: - None
+根据您提供的信息，当地时间上午9:30（UTC 0230），一架JAS 39C“鹰狮”战斗机在跑道区域发生撞击并爆炸，导致机场紧急关闭，商业航班运营中断。以下是关键点分析和建议：
+
+---
+
+### **事件关键信息**
+1. **机型与背景**  
+   - **JAS 39C“鹰狮”**：瑞典萨博公司研制的单发多用途战斗机，常用于制空、对地攻击和
+dataset name:              flores101
+file name:                 2
+prompt eval count:    44 token(s)
+prompt eval duration: 3.4120686054229736s
+prompt eval rate:     12.89540307896171 tokens/s
+eval count:           100 token(s)
+eval duration:        31.59395742416382s
+eval rate:            3.1651622067299994 tokens/s
+input:  - ./moe_analysis/test_prompt/flores101/3.txt
+output: - None
+这段文字描述了一位球员在单赛季进球数达到60个的里程碑，并提到这是自1995-96赛季以来首次有人达成这一成就。以下是对信息的拆解和补充背景：
+
+1. **关键数据**  
+   - **单赛季60球**：该球员成为近27年（1995-96至2022-23赛季）首位达成此成就的球员，凸显其进攻端的统治力。
+   - **历史对比
+dataset name:              flores101
+file name:                 3
+prompt eval count:    60 token(s)
+prompt eval duration: 4.295011520385742s
+prompt eval rate:     13.969694776188003 tokens/s
+eval count:           100 token(s)
+eval duration:        31.538618803024292s
+eval rate:            3.1707158967408815 tokens/s
+input:  - ./moe_analysis/test_prompt/flores101/4.txt
+output: - None
+根据预报员的预测，这场位于佛得角群岛以西约1040公里（645英里）的风暴系统可能在影响任何陆地之前就会减弱消散。以下是关键点分析：
+
+1. **当前位置与路径**：  
+   风暴位于佛得角群岛以西较远的大西洋海域（约1040公里），距离陆地较远，暂时未对佛得角或西非海岸构成直接威胁。
+
+2. **消散可能性高的原因**：  
+   - **环境条件
+dataset name:              flores101
+file name:                 4
+prompt eval count:    37 token(s)
+prompt eval duration: 2.992938280105591s
+prompt eval rate:     12.36243334717034 tokens/s
+eval count:           100 token(s)
+eval duration:        33.336089849472046s
+eval rate:            2.999751934061449 tokens/s
+
+📂 Dataset: xsum (5 files)
+input:  - ./moe_analysis/test_prompt/xsum/33578778.txt
+output: - None
+This passage summarizes key developments in the Greek debt crisis in July 2015, focusing on the contentious bailout agreement between Greece and its eurozone creditors. Here’s a breakdown of the main points:
+
+1. **Yanis Varoufakis' Criticism**:  
+   - The former Greek finance minister condemned the bailout program as the "greatest disaster of macroeconomic management ever," arguing it was doomed to fail. He resigned earlier in July, seen as a move to ease tensions with 
+dataset name:              xsum
+file name:                 33578778
+prompt eval count:    453 token(s)
+prompt eval duration: 27.335615396499634s
+prompt eval rate:     16.571787151278375 tokens/s
+eval count:           100 token(s)
+eval duration:        31.96776795387268s
+eval rate:            3.12815083443715 tokens/s
+input:  - ./moe_analysis/test_prompt/xsum/36232142.txt
+output: - None
+This article details the significant flooding impacts in Newton Stewart, Hawick, Peeblesshire, and other parts of Dumfries & Galloway and the Scottish Borders, highlighting ongoing repair efforts, infrastructure disruptions, and community frustrations. Here’s a concise summary and analysis:
+
+### **Key Points**:
+1. **Areas Affected**:  
+   - **Newton Stewart**: Severe flooding after the River Cree overflowed, breaching a retaining wall and flooding Victoria Street (main shopping 
+dataset name:              xsum
+file name:                 36232142
+prompt eval count:    491 token(s)
+prompt eval duration: 29.216558933258057s
+prompt eval rate:     16.805538294966027 tokens/s
+eval count:           100 token(s)
+eval duration:        31.629626274108887s
+eval rate:            3.161592841261522 tokens/s
+input:  - ./moe_analysis/test_prompt/xsum/36266422.txt
+output: - None
+This case involves serious historical allegations against John Edward Bates, a 67-year-old former scout leader and ex-police officer, who is facing 22 charges, including two counts of indecency with a child. Here’s a summary of the key details:
+
+### **Key Points of the Case:**
+1. **Defendant:**  
+   - John Edward Bates, aged 67.  
+   - Formerly of Spalding, Lincolnshire; now living in London.  
+   
+dataset name:              xsum
+file name:                 36266422
+prompt eval count:    330 token(s)
+prompt eval duration: 19.985748767852783s
+prompt eval rate:     16.511765650272125 tokens/s
+eval count:           100 token(s)
+eval duration:        30.889464616775513s
+eval rate:            3.237349732040736 tokens/s
+input:  - ./moe_analysis/test_prompt/xsum/36888270.txt
+output: - None
+The International Paralympic Committee (IPC) has initiated proceedings against the National Paralympic Committee of Russia (NPC Russia) following Richard McLaren's report, which revealed a state-sponsored doping program in Russia from 2011 to 2015. The IPC is set to decide on a potential ban in the week starting 1 August 2016.  
+
+### Key Points:  
+1. **IPC's Stance vs. IOC's Approach**:  
+   - The **International Olympic Committee 
+dataset name:              xsum
+file name:                 36888270
+prompt eval count:    380 token(s)
+prompt eval duration: 22.86583113670349s
+prompt eval rate:     16.618683035318856 tokens/s
+eval count:           100 token(s)
+eval duration:        31.21884512901306s
+eval rate:            3.2031934425103237 tokens/s
+input:  - ./moe_analysis/test_prompt/xsum/40143035.txt
+output: - None
+Here’s a concise summary of the incident for clarity and potential reporting:
+
+**Key Points:**  
+1. **Fire Incident**: A deliberate fire destroyed two tour buses parked at the Holiday Inn on Hope Street, Belfast, around 04:20 BST on Saturday.  
+2. **Evacuation**: Hotel guests were evacuated and witnessed the buses engulfed in flames.  
+3. **Affected Groups**:  
+   - The buses belonged to two tour groups: one from **Germany** and 
+dataset name:              xsum
+file name:                 40143035
+prompt eval count:    180 token(s)
+prompt eval duration: 11.200071573257446s
+prompt eval rate:     16.071325868112154 tokens/s
+eval count:           100 token(s)
+eval duration:        30.525660514831543s
+eval rate:            3.275932389781144 tokens/s
+
+📂 Dataset: gsm8k (5 files)
+input:  - ./moe_analysis/test_prompt/gsm8k/0.txt
+output: - None
+Let's determine the total number of flowers in Mark's garden step by step.
+
+1. **Yellow Flowers**:
+   - Given: **10** yellow flowers.
+
+2. **Purple Flowers**:
+   - There are **80% more** purple flowers than yellow flowers.
+   - **80% of 10** = \( 0.8 \times 10 = 8 \).
+   - **Total purple flowers** = Yellow flowers + 80% more = \( 10 
+dataset name:              gsm8k
+file name:                 0
+prompt eval count:    66 token(s)
+prompt eval duration: 4.628188610076904s
+prompt eval rate:     14.260438707337666 tokens/s
+eval count:           100 token(s)
+eval duration:        30.4419264793396s
+eval rate:            3.2849432202613142 tokens/s
+input:  - ./moe_analysis/test_prompt/gsm8k/1.txt
+output: - None
+To determine how many slices of pizza Albert eats in one day, let's break down the problem step by step.
+
+1. **Identify the number of pizzas and their sizes:**
+   - **Large pizzas:** 2
+   - **Small pizzas:** 2
+
+2. **Determine the number of slices per pizza:**
+   - **Large pizza:** 16 slices each
+   - **Small pizza:** 8 slices each
+
+3. **Calculate the total slices from 
+dataset name:              gsm8k
+file name:                 1
+prompt eval count:    61 token(s)
+prompt eval duration: 4.307993412017822s
+prompt eval rate:     14.15972453203641 tokens/s
+eval count:           100 token(s)
+eval duration:        30.748460292816162s
+eval rate:            3.252195363530552 tokens/s
+input:  - ./moe_analysis/test_prompt/gsm8k/2.txt
+output: - None
+Let's break down the problem step by step to determine the final weight of the box.
+
+1. **Initial Weight:**
+   - Ken starts with an empty box on a scale.
+   - He adds jelly beans until the total weight is **2 pounds**.
+
+2. **Adding Brownies:**
+   - He then adds enough brownies to **triple** the current weight.
+   - **Calculation:** \( 2 \text{ pounds} \times 3 = 6 
+dataset name:              gsm8k
+file name:                 2
+prompt eval count:    105 token(s)
+prompt eval duration: 6.973494529724121s
+prompt eval rate:     15.057013316988135 tokens/s
+eval count:           100 token(s)
+eval duration:        30.807502031326294s
+eval rate:            3.245962619699449 tokens/s
+input:  - ./moe_analysis/test_prompt/gsm8k/3.txt
+output: - None
+To determine how much Alexis paid for the shoes, let's follow these steps:
+
+1. **List all the items purchased and their costs:**
+   - Button-up shirt: \$30
+   - Suit pants: \$46
+   - Suit coat: \$38
+   - Socks: \$11
+   - Belt: \$18
+   - **Shoes: ?** (Let's denote this as \( x \))
+
+2. **Calculate the total amount spent on 
+dataset name:              gsm8k
+file name:                 3
+prompt eval count:    105 token(s)
+prompt eval duration: 6.94252872467041s
+prompt eval rate:     15.124172209310487 tokens/s
+eval count:           100 token(s)
+eval duration:        30.85547161102295s
+eval rate:            3.2409162712092705 tokens/s
+input:  - ./moe_analysis/test_prompt/gsm8k/4.txt
+output: - None
+Let's calculate Tina's total earnings step by step.
+
+### **1. Determine Regular and Overtime Hours:**
+- **Regular Hours per Day:** 8 hours
+- **Overtime Hours per Day:** 10 hours (total) - 8 hours (regular) = **2 hours**
+
+### **2. Calculate Overtime Pay Rate:**
+- **Hourly Wage:** \$18.00
+- **Overtime Rate:** \$18.00 + 
+dataset name:              gsm8k
+file name:                 4
+prompt eval count:    66 token(s)
+prompt eval duration: 4.69629693031311s
+prompt eval rate:     14.053625862962559 tokens/s
+eval count:           100 token(s)
+eval duration:        31.65356707572937s
+eval rate:            3.159201607855306 tokens/s
+
+📂 Dataset: awesome_chatgpt_prompts (5 files)
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/0.txt
+output: - None
+# Blockchain Messenger Smart Contract
+
+Here's a Solidity smart contract that implements a blockchain messenger with the following features:
+- Publicly readable messages
+- Only the contract owner can write/update messages
+- Tracks how many times the message was updated
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract BlockchainMessenger {
+    // The current message stored on the blockchain
+    string private message;
+    
+    // 
+dataset name:              awesome_chatgpt_prompts
+file name:                 0
+prompt eval count:    104 token(s)
+prompt eval duration: 6.833501577377319s
+prompt eval rate:     15.219137483526408 tokens/s
+eval count:           100 token(s)
+eval duration:        31.501169681549072s
+eval rate:            3.174485297241905 tokens/s
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/1.txt
+output: - None
+Here’s a comprehensive **2,000-word article outline** for **"Best SEO Prompts"**, split into **Part 1** and **Part 2**, based on the top 10 Google results. The outline includes **high keyword density**, **LSI/NLP keywords**, **FAQs**, and **external links**.  
+
+---
+
+### **Part 1: Best SEO Prompts – Introduction, Types, and Use Cases**  
+**Total Word Count: 1,000 
+dataset name:              awesome_chatgpt_prompts
+file name:                 1
+prompt eval count:    175 token(s)
+prompt eval duration: 10.864556074142456s
+prompt eval rate:     16.107422963787577 tokens/s
+eval count:           100 token(s)
+eval duration:        31.291982650756836s
+eval rate:            3.1957067443146294 tokens/s
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/2.txt
+output: - None
+```
+/home/user
+```
+dataset name:              awesome_chatgpt_prompts
+file name:                 2
+prompt eval count:    96 token(s)
+prompt eval duration: 6.382232666015625s
+prompt eval rate:     15.041758115648893 tokens/s
+eval count:           6 token(s)
+eval duration:        2.134765386581421s
+eval rate:            2.8106133056655485 tokens/s
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/3.txt
+output: - None
+"I adore Istanbul; being here is absolutely delightful."
+dataset name:              awesome_chatgpt_prompts
+file name:                 3
+prompt eval count:    132 token(s)
+prompt eval duration: 8.414073467254639s
+prompt eval rate:     15.688001835699353 tokens/s
+eval count:           11 token(s)
+eval duration:        3.733581304550171s
+eval rate:            2.9462328801020448 tokens/s
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/4.txt
+output: - None
+Hi! Thank you for joining us today. Let’s start with a brief introduction. Could you tell me a little about yourself and your background?
+dataset name:              awesome_chatgpt_prompts
+file name:                 4
+prompt eval count:    101 token(s)
+prompt eval duration: 6.5966691970825195s
+prompt eval rate:     15.310757138567572 tokens/s
+eval count:           31 token(s)
+eval duration:        9.913421630859375s
+eval rate:            3.1270736940614388 tokens/s
+
+📂 Dataset: humaneval (5 files)
+input:  - ./moe_analysis/test_prompt/humaneval/0.txt
+output: - None
+To solve this problem, we need to decompose a given positive floating-point number into its integer part and the decimal part. The decimal part is the leftover part after subtracting the integer part from the original number, and it is always smaller than 1.
+
+### Approach
+1. **Extract the Integer Part**: The integer part of a positive floating-point number can be obtained by taking the floor of the number. In Python, this can be done using the `int()` function, which truncates 
+dataset name:              humaneval
+file name:                 0
+prompt eval count:    73 token(s)
+prompt eval duration: 5.10744047164917s
+prompt eval rate:     14.292873388385988 tokens/s
+eval count:           100 token(s)
+eval duration:        30.594091415405273s
+eval rate:            3.2686049944155635 tokens/s
+input:  - ./moe_analysis/test_prompt/humaneval/1.txt
+output: - None
+To solve this problem, we need to determine if the balance of a bank account ever falls below zero at any point during a series of deposit and withdrawal operations. The account starts with a zero balance, and each operation in the list is applied sequentially. We need to check the balance after each operation to see if it becomes negative. If it does, we return `True` immediately. If we process all operations without the balance ever going negative, we return `False`.
+
+### Approach
+1. 
+dataset name:              humaneval
+file name:                 1
+prompt eval count:    103 token(s)
+prompt eval duration: 6.784184694290161s
+prompt eval rate:     15.182369679099226 tokens/s
+eval count:           100 token(s)
+eval duration:        30.787217140197754s
+eval rate:            3.2481012994654077 tokens/s
+input:  - ./moe_analysis/test_prompt/humaneval/2.txt
+output: - None
+To calculate the Mean Absolute Deviation (MAD) around the mean of a dataset, follow these steps:
+
+1. **Calculate the mean (average) of the dataset.**
+2. **Compute the absolute difference between each data point and the mean.**
+3. **Calculate the average of these absolute differences.**
+
+Here's the implementation of the `mean_absolute_deviation` function based on the provided requirements:
+
+```python
+from typing import List
+
+def mean_absolute_deviation(numbers: 
+dataset name:              humaneval
+file name:                 2
+prompt eval count:    103 token(s)
+prompt eval duration: 6.820876359939575s
+prompt eval rate:     15.100698878657354 tokens/s
+eval count:           100 token(s)
+eval duration:        30.64821457862854s
+eval rate:            3.2628328068980403 tokens/s
+input:  - ./moe_analysis/test_prompt/humaneval/3.txt
+output: - None
+Here's the implementation of the `filter_by_substring` function:
+
+```python
+from typing import List
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    """
+    Filter an input list of strings only for ones that contain given substring
+    
+    >>> filter_by_substring([], 'a')
+    []
+    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 
+dataset name:              humaneval
+file name:                 3
+prompt eval count:    84 token(s)
+prompt eval duration: 5.6922972202301025s
+prompt eval rate:     14.756783904654302 tokens/s
+eval count:           100 token(s)
+eval duration:        30.71983551979065s
+eval rate:            3.2552257623767864 tokens/s
+input:  - ./moe_analysis/test_prompt/humaneval/4.txt
+output: - None
+To solve this problem, we need to find how many times a given substring appears in a string, including overlapping cases. For example, in the string 'aaaa', the substring 'aa' appears three times (positions 0-1, 1-2, and 2-3), not just two.
+
+### Approach
+1. **Edge Cases Handling**: 
+   - If the string is empty, return 0 since no substring can be found in an empty string.
+   - If 
+dataset name:              humaneval
+file name:                 4
+prompt eval count:    83 token(s)
+prompt eval duration: 5.641124963760376s
+prompt eval rate:     14.71337730208199 tokens/s
+eval count:           100 token(s)
+eval duration:        30.610822439193726s
+eval rate:            3.2668184658756902 tokens/s
+
+=== PROCESS RETURN CODE: 0 ===

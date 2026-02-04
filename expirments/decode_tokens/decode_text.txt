@@ -1,0 +1,62 @@
+Let's determine the total number of flowers in Mark's garden step by step.
+
+1. **Yellow Flowers:**
+   
+   Mark has **10** yellow flowers.
+
+2. **Purple Flowers:**
+   
+   There are **80%** more purple flowers than yellow flowers. 
+   
+   \[
+   \text{Number of purple flowers} = 10 + (80\% \times 10) = 10 + 8 = 18
+   \]
+
+3. **Green
+
+===============
+
+To determine how many slices of pizza Albert eats in one day, let's break down the problem step by step.
+
+1. **Identify the number of pizzas and their sizes:**
+   - **Large pizzas:** 2
+   - **Small pizzas:** 2
+
+2. **Determine the number of slices per pizza:**
+   - **Large pizza:** 16 slices each
+   - **Small pizza:** 8 slices each
+
+3. **Calculate the total slices from 
+
+===============
+Let's break down the problem step by step to determine the final weight of the box.
+
+1. **Initial Weight:**
+   - Ken starts with an empty box on a scale.
+   - He adds jelly beans until the total weight is **2 pounds**.
+
+2. **Adding Brownies:**
+   - He then adds enough brownies to **triple** the current weight.
+   - **Calculation:** \( 2 \text{ pounds} \times 3 = 6
+
+===============
+To determine how much Alexis paid for the shoes, let's follow these steps:
+
+1. **List all the items purchased and their costs:**
+   - Button-up shirt: \$30
+   - Suit pants: \$46
+   - Suit coat: \$38
+   - Socks: \$11
+   - Belt: \$18
+   - **Shoes: ?** (Let's denote this as \( x \))
+
+2. **Calculate the total amount spent on
+
+===============
+To determine how much Tina earns for working 10 hours a day for 5 days, we'll break down her pay into regular and overtime hours.
+
+### **Given:**
+- **Regular hourly wage:** \$18.00
+- **Overtime rate:** 1.5 times the regular rate (which is \$18 + \$9 = \$27 per hour)
+- **Regular hours per day:** 8 hours
+- **Overtime hours per day:** 2 hours

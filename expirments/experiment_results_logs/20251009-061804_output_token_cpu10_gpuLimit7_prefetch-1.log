@@ -1,0 +1,2539 @@
+no balance_serve
+flashinfer not found, use triton for linux
+using custom modeling_xxx.py.
+using default_optimize_rule for DeepseekV3ForCausalLM
+---------    >>>>>>>>>Initialized CPUInfer with 10 threads.
+----------------------------------------------------------------------------------------------------CPU_INFER in KExpertsCPU: 10
+/workspace/./ktransformers/operators/experts.py:221: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.predictor.load_state_dict(torch.load(self.predictor_path, map_location=self.gpu_device))
+generation config can't auto create, make default. Message: /mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config/ does not appear to have a file named generation_config.json. Checkout 'https://huggingface.co//mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config//tree/main' for available files.
+
+📂 Dataset: triviaqa (5 files)
+input:  - ./moe_analysis/test_prompt/triviaqa/0.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+/workspace/./ktransformers/util/custom_loader.py:445: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:206.)
+  return torch.from_numpy(data)
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+The American-born Sinclair who won the Nobel Prize for Literature in 1930 was **Sinclair Lewis**. 
+
+Lewis was the first American to receive the Nobel Prize in Literature, honored for his vigorous and graphic art of description and his ability to create new types of characters with wit and humor. Some of his most famous works include *Main Street* (1920), *Babbitt* (1922), *Arrowsmith* (1925), and *Elmer Gantry* 
+dataset name:         triviaqa
+file name:            0
+prompt eval count:    18 token(s)
+prompt eval duration: 3.3179588317871094s
+prompt eval rate:     5.42502210321425 tokens/s
+eval count:           100 token(s)
+eval duration:        32.65371227264404s
+eval rate:            3.062438940021406 tokens/s
+00:0.057; 01:0.066; 02:0.073; 03:0.080; 04:0.091; 05:0.074; 06:0.063; 07:0.112; 08:0.073; 09:0.087; 
+10:0.096; 11:0.085; 12:0.134; 13:0.111; 14:0.148; 15:0.135; 16:0.135; 17:0.111; 18:0.121; 19:0.205; 
+20:0.160; 21:0.220; 22:0.217; 23:0.091; 24:0.146; 25:0.131; 26:0.163; 27:0.140; 28:0.128; 29:0.150; 
+30:0.163; 31:0.187; 32:0.230; 33:0.131; 34:0.250; 35:0.192; 36:0.278; 37:0.244; 38:0.290; 39:0.251; 
+40:0.218; 41:0.206; 42:0.188; 43:0.178; 44:0.176; 45:0.134; 46:0.199; 47:0.208; 48:0.220; 49:0.093; 
+50:0.191; 51:0.051; 52:0.109; 53:0.120; 54:0.083; 55:0.184; 56:0.096; 57:0.067; 
+hit rate:     0.147
+prefetch hit rate: 0.147
+input:  - ./moe_analysis/test_prompt/triviaqa/1.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Dame Judi Dench was born in **York, England**, on **9 December 1934**.  
+
+She grew up in York and later attended the **Central School of Speech and Drama** in London before launching her acclaimed stage and screen career.
+dataset name:         triviaqa
+file name:            1
+prompt eval count:    14 token(s)
+prompt eval duration: 2.571298837661743s
+prompt eval rate:     5.444719141525826 tokens/s
+eval count:           52 token(s)
+eval duration:        16.858872652053833s
+eval rate:            3.084429254150935 tokens/s
+00:0.074; 01:0.083; 02:0.088; 03:0.074; 04:0.093; 05:0.103; 06:0.169; 07:0.049; 08:0.081; 09:0.091; 
+10:0.123; 11:0.044; 12:0.091; 13:0.091; 14:0.137; 15:0.110; 16:0.076; 17:0.174; 18:0.120; 19:0.066; 
+20:0.250; 21:0.167; 22:0.333; 23:0.189; 24:0.255; 25:0.176; 26:0.203; 27:0.174; 28:0.130; 29:0.083; 
+30:0.059; 31:0.069; 32:0.066; 33:0.172; 34:0.184; 35:0.225; 36:0.179; 37:0.157; 38:0.176; 39:0.191; 
+40:0.135; 41:0.110; 42:0.142; 43:0.176; 44:0.074; 45:0.176; 46:0.049; 47:0.039; 48:0.157; 49:0.196; 
+50:0.132; 51:0.034; 52:0.049; 53:0.078; 54:0.093; 55:0.100; 56:0.086; 57:0.093; 
+hit rate:     0.126
+prefetch hit rate: 0.126
+input:  - ./moe_analysis/test_prompt/triviaqa/2.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Dame Judi Dench was born in **York, England**, on **9 December 1934**.  
+
+She grew up in York and later attended the **Central School of Speech and Drama** in London before beginning her illustrious career in theatre, film, and television.
+dataset name:         triviaqa
+file name:            2
+prompt eval count:    14 token(s)
+prompt eval duration: 2.432499408721924s
+prompt eval rate:     5.755397082441979 tokens/s
+eval count:           56 token(s)
+eval duration:        18.172236442565918s
+eval rate:            3.081624002471586 tokens/s
+00:0.093; 01:0.107; 02:0.095; 03:0.105; 04:0.130; 05:0.111; 06:0.173; 07:0.080; 08:0.130; 09:0.123; 
+10:0.177; 11:0.136; 12:0.266; 13:0.082; 14:0.139; 15:0.134; 16:0.214; 17:0.195; 18:0.120; 19:0.125; 
+20:0.277; 21:0.245; 22:0.364; 23:0.302; 24:0.307; 25:0.277; 26:0.252; 27:0.195; 28:0.180; 29:0.255; 
+30:0.080; 31:0.180; 32:0.243; 33:0.243; 34:0.198; 35:0.298; 36:0.189; 37:0.259; 38:0.214; 39:0.273; 
+40:0.277; 41:0.145; 42:0.273; 43:0.307; 44:0.180; 45:0.277; 46:0.150; 47:0.184; 48:0.223; 49:0.352; 
+50:0.225; 51:0.080; 52:0.261; 53:0.225; 54:0.186; 55:0.130; 56:0.211; 57:0.132; 
+hit rate:     0.196
+prefetch hit rate: 0.196
+input:  - ./moe_analysis/test_prompt/triviaqa/3.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Angola achieved independence from **Portugal** on **November 11, 1975**, following a long struggle for liberation and the Carnation Revolution in Portugal (1974), which led to the end of colonial rule. The independence was marked by a transition of power, though Angola soon descended into a civil war (1975–2002) between rival nationalist factions.
+dataset name:         triviaqa
+file name:            3
+prompt eval count:    15 token(s)
+prompt eval duration: 2.8219385147094727s
+prompt eval rate:     5.315494976879146 tokens/s
+eval count:           76 token(s)
+eval duration:        25.47954559326172s
+eval rate:            2.9827847487240446 tokens/s
+00:0.065; 01:0.065; 02:0.065; 03:0.050; 04:0.063; 05:0.140; 06:0.112; 07:0.055; 08:0.038; 09:0.088; 
+10:0.165; 11:0.055; 12:0.142; 13:0.117; 14:0.138; 15:0.075; 16:0.125; 17:0.133; 18:0.112; 19:0.068; 
+20:0.220; 21:0.153; 22:0.143; 23:0.122; 24:0.245; 25:0.172; 26:0.175; 27:0.103; 28:0.112; 29:0.037; 
+30:0.063; 31:0.165; 32:0.033; 33:0.047; 34:0.215; 35:0.115; 36:0.112; 37:0.137; 38:0.032; 39:0.175; 
+40:0.133; 41:0.238; 42:0.063; 43:0.063; 44:0.065; 45:0.170; 46:0.088; 47:0.072; 48:0.140; 49:0.013; 
+50:0.065; 51:0.022; 52:0.043; 53:0.027; 54:0.092; 55:0.138; 56:0.153; 57:0.152; 
+hit rate:     0.107
+prefetch hit rate: 0.107
+input:  - ./moe_analysis/test_prompt/triviaqa/4.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+The first European country to abolish capital punishment for all crimes was **Portugal**. 
+
+- **1867**: Portugal abolished the death penalty for ordinary crimes (civilian offenses) under the reign of King Luís I.  
+- **1911**: The death penalty was completely abolished for all crimes, including military offenses, following the establishment of the Portuguese Republic.  
+
+Other European nations followed later, but Portugal was the pioneer in fully abolishing capital punishment. 
+
+**Note**: Some sources cite 
+dataset name:         triviaqa
+file name:            4
+prompt eval count:    14 token(s)
+prompt eval duration: 2.4531216621398926s
+prompt eval rate:     5.707014134711771 tokens/s
+eval count:           100 token(s)
+eval duration:        33.53225564956665s
+eval rate:            2.9822031969773657 tokens/s
+00:0.062; 01:0.074; 02:0.088; 03:0.069; 04:0.069; 05:0.131; 06:0.125; 07:0.107; 08:0.064; 09:0.071; 
+10:0.125; 11:0.054; 12:0.100; 13:0.117; 14:0.144; 15:0.115; 16:0.153; 17:0.100; 18:0.109; 19:0.150; 
+20:0.168; 21:0.192; 22:0.128; 23:0.146; 24:0.231; 25:0.198; 26:0.101; 27:0.135; 28:0.129; 29:0.129; 
+30:0.215; 31:0.157; 32:0.187; 33:0.205; 34:0.263; 35:0.181; 36:0.239; 37:0.136; 38:0.220; 39:0.203; 
+40:0.235; 41:0.188; 42:0.110; 43:0.130; 44:0.157; 45:0.245; 46:0.083; 47:0.128; 48:0.152; 49:0.124; 
+50:0.122; 51:0.124; 52:0.117; 53:0.197; 54:0.143; 55:0.140; 56:0.202; 57:0.165; 
+hit rate:     0.144
+prefetch hit rate: 0.144
+
+📂 Dataset: flores101 (5 files)
+input:  - ./moe_analysis/test_prompt/flores101/0.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+斯坦福大学医学院研发的这种可打印微型芯片技术，标志着细胞分类诊断工具领域的一项重大突破。以下是对该技术的详细解读及其潜在影响的分析：
+
+---
+
+### **技术核心与创新点**
+1. **低成本与可及性**  
+   - **喷墨打印制造**：利用标准喷墨打印机生产，大幅降低设备成本（每片约1美分），解决了传统流式细胞仪或微流控芯片的高成本问题（通常需数千至数百万
+dataset name:         flores101
+file name:            0
+prompt eval count:    51 token(s)
+prompt eval duration: 4.851732492446899s
+prompt eval rate:     10.511708978060105 tokens/s
+eval count:           100 token(s)
+eval duration:        33.91873216629028s
+eval rate:            2.9482234038035116 tokens/s
+00:0.043; 01:0.042; 02:0.056; 03:0.042; 04:0.034; 05:0.074; 06:0.104; 07:0.062; 08:0.049; 09:0.063; 
+10:0.125; 11:0.037; 12:0.096; 13:0.038; 14:0.069; 15:0.035; 16:0.048; 17:0.067; 18:0.133; 19:0.087; 
+20:0.169; 21:0.126; 22:0.098; 23:0.148; 24:0.037; 25:0.045; 26:0.018; 27:0.059; 28:0.107; 29:0.043; 
+30:0.023; 31:0.023; 32:0.104; 33:0.040; 34:0.069; 35:0.102; 36:0.100; 37:0.053; 38:0.025; 39:0.016; 
+40:0.006; 41:0.043; 42:0.015; 43:0.013; 44:0.061; 45:0.028; 46:0.047; 47:0.023; 48:0.035; 49:0.023; 
+50:0.016; 51:0.130; 52:0.008; 53:0.047; 54:0.120; 55:0.034; 56:0.008; 57:0.044; 
+hit rate:     0.059
+prefetch hit rate: 0.059
+input:  - ./moe_analysis/test_prompt/flores101/1.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+这项研究的意义重大，尤其在解决全球健康不平等问题上。以下是对其影响的进一步分析和延伸思考：
+
+---
+
+### 1. **早期检测技术的关键作用**
+   - **技术普惠性**：低成本、便携的检测工具（如快速诊断试剂、移动影像设备）可弥补低收入国家医疗基础设施的不足。例如：
+     - **乳腺癌**：便携式超声或AI辅助触诊设备可替代昂贵的钼靶检查。
+     - **传染病**：疟疾快速
+dataset name:         flores101
+file name:            1
+prompt eval count:    41 token(s)
+prompt eval duration: 4.258696556091309s
+prompt eval rate:     9.627358854989748 tokens/s
+eval count:           100 token(s)
+eval duration:        31.98228359222412s
+eval rate:            3.1267310763360587 tokens/s
+00:0.044; 01:0.061; 02:0.120; 03:0.054; 04:0.043; 05:0.085; 06:0.134; 07:0.098; 08:0.051; 09:0.076; 
+10:0.102; 11:0.028; 12:0.104; 13:0.076; 14:0.081; 15:0.071; 16:0.056; 17:0.101; 18:0.107; 19:0.087; 
+20:0.232; 21:0.146; 22:0.083; 23:0.153; 24:0.068; 25:0.098; 26:0.085; 27:0.133; 28:0.145; 29:0.058; 
+30:0.037; 31:0.042; 32:0.160; 33:0.021; 34:0.120; 35:0.111; 36:0.064; 37:0.080; 38:0.061; 39:0.006; 
+40:0.014; 41:0.126; 42:0.073; 43:0.045; 44:0.153; 45:0.120; 46:0.215; 47:0.032; 48:0.074; 49:0.072; 
+50:0.097; 51:0.193; 52:0.265; 53:0.177; 54:0.106; 55:0.032; 56:0.076; 57:0.109; 
+hit rate:     0.094
+prefetch hit rate: 0.094
+input:  - ./moe_analysis/test_prompt/flores101/2.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+根据您提供的信息，当地时间上午9:30（UTC 0230），一架JAS 39C“鹰狮”战斗机在跑道区域发生撞击并爆炸，导致机场紧急关闭，商业航班运营中断。以下是关键点分析和建议：
+
+---
+
+### **事件关键信息**
+1. **机型与背景**  
+   - **JAS 39C“鹰狮”**：瑞典萨博公司研制的单发多用途战斗机，广泛用于瑞典、南非、捷克等国
+dataset name:         flores101
+file name:            2
+prompt eval count:    44 token(s)
+prompt eval duration: 4.639756441116333s
+prompt eval rate:     9.483256407617278 tokens/s
+eval count:           100 token(s)
+eval duration:        31.968130111694336s
+eval rate:            3.1281153965091866 tokens/s
+00:0.054; 01:0.082; 02:0.072; 03:0.049; 04:0.067; 05:0.129; 06:0.153; 07:0.077; 08:0.062; 09:0.088; 
+10:0.170; 11:0.074; 12:0.125; 13:0.149; 14:0.136; 15:0.053; 16:0.091; 17:0.076; 18:0.149; 19:0.126; 
+20:0.174; 21:0.216; 22:0.114; 23:0.150; 24:0.191; 25:0.101; 26:0.119; 27:0.152; 28:0.128; 29:0.102; 
+30:0.100; 31:0.047; 32:0.096; 33:0.126; 34:0.102; 35:0.178; 36:0.063; 37:0.083; 38:0.125; 39:0.072; 
+40:0.042; 41:0.054; 42:0.085; 43:0.037; 44:0.186; 45:0.054; 46:0.196; 47:0.057; 48:0.030; 49:0.072; 
+50:0.068; 51:0.234; 52:0.131; 53:0.083; 54:0.066; 55:0.049; 56:0.072; 57:0.163; 
+hit rate:     0.105
+prefetch hit rate: 0.105
+input:  - ./moe_analysis/test_prompt/flores101/3.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+这段文字描述了一位球员在单赛季达成60+进球的里程碑，并提到这是自1995-96赛季以来首次有人实现这一壮举。以下是对信息的补充和背景解析：
+
+---
+
+### **关键信息点**
+1. **球员成就**  
+   - 该球员在当赛季的第二个进球是其第60球，成为**近27年来**（1995-96至当前赛季）首位单赛季进球达60+的球员。
+   - 此前
+dataset name:         flores101
+file name:            3
+prompt eval count:    60 token(s)
+prompt eval duration: 5.269301652908325s
+prompt eval rate:     11.386708135580689 tokens/s
+eval count:           100 token(s)
+eval duration:        31.533021926879883s
+eval rate:            3.1712786751578794 tokens/s
+00:0.068; 01:0.066; 02:0.159; 03:0.044; 04:0.081; 05:0.162; 06:0.177; 07:0.076; 08:0.082; 09:0.100; 
+10:0.139; 11:0.074; 12:0.141; 13:0.134; 14:0.080; 15:0.064; 16:0.101; 17:0.111; 18:0.170; 19:0.143; 
+20:0.148; 21:0.172; 22:0.168; 23:0.153; 24:0.144; 25:0.182; 26:0.080; 27:0.232; 28:0.110; 29:0.080; 
+30:0.148; 31:0.145; 32:0.162; 33:0.155; 34:0.052; 35:0.138; 36:0.053; 37:0.081; 38:0.085; 39:0.150; 
+40:0.203; 41:0.152; 42:0.082; 43:0.069; 44:0.181; 45:0.056; 46:0.115; 47:0.030; 48:0.106; 49:0.078; 
+50:0.030; 51:0.128; 52:0.027; 53:0.120; 54:0.225; 55:0.053; 56:0.064; 57:0.091; 
+hit rate:     0.114
+prefetch hit rate: 0.114
+input:  - ./moe_analysis/test_prompt/flores101/4.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+根据预报员的预测，这场位于佛得角群岛以西约1040公里（645英里）的风暴系统可能在影响任何陆地前就会减弱消散。以下是关键信息总结：
+
+1. **当前位置**：风暴位于佛得角群岛以西较远海域（距离约1040公里），目前对陆地无直接影响。
+2. **未来动向**：预报模型显示，由于环境条件不利（如垂直风切变增强、海温降低或干空气侵入等），风暴可能在
+dataset name:         flores101
+file name:            4
+prompt eval count:    37 token(s)
+prompt eval duration: 4.084927320480347s
+prompt eval rate:     9.057688692402285 tokens/s
+eval count:           100 token(s)
+eval duration:        32.995898723602295s
+eval rate:            3.030679686517191 tokens/s
+00:0.061; 01:0.056; 02:0.058; 03:0.035; 04:0.057; 05:0.104; 06:0.135; 07:0.064; 08:0.068; 09:0.114; 
+10:0.143; 11:0.069; 12:0.116; 13:0.181; 14:0.095; 15:0.074; 16:0.088; 17:0.148; 18:0.139; 19:0.105; 
+20:0.125; 21:0.187; 22:0.177; 23:0.097; 24:0.182; 25:0.131; 26:0.083; 27:0.120; 28:0.126; 29:0.117; 
+30:0.052; 31:0.049; 32:0.145; 33:0.080; 34:0.062; 35:0.116; 36:0.037; 37:0.059; 38:0.122; 39:0.120; 
+40:0.087; 41:0.090; 42:0.093; 43:0.072; 44:0.128; 45:0.067; 46:0.119; 47:0.068; 48:0.051; 49:0.116; 
+50:0.043; 51:0.232; 52:0.063; 53:0.105; 54:0.092; 55:0.086; 56:0.120; 57:0.202; 
+hit rate:     0.102
+prefetch hit rate: 0.102
+
+📂 Dataset: xsum (5 files)
+input:  - ./moe_analysis/test_prompt/xsum/33578778.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+This passage summarizes key developments in the Greek debt crisis following the 2015 bailout agreement, featuring insights from former Greek Finance Minister Yanis Varoufakis and reactions from European stakeholders. Here’s a breakdown of the key points:
+
+### **1. Varoufakis’ Critique of the Bailout**  
+- **"Greatest macroeconomic disaster"**: Varoufakis condemned the bailout terms as historically catastrophic, arguing it was doomed to fail ("failed already").  
+- 
+dataset name:         xsum
+file name:            33578778
+prompt eval count:    453 token(s)
+prompt eval duration: 28.315796852111816s
+prompt eval rate:     15.998137095202916 tokens/s
+eval count:           100 token(s)
+eval duration:        32.35975646972656s
+eval rate:            3.090258114073038 tokens/s
+00:0.054; 01:0.053; 02:0.062; 03:0.052; 04:0.051; 05:0.101; 06:0.125; 07:0.080; 08:0.083; 09:0.086; 
+10:0.173; 11:0.138; 12:0.160; 13:0.163; 14:0.087; 15:0.124; 16:0.106; 17:0.119; 18:0.138; 19:0.158; 
+20:0.210; 21:0.283; 22:0.196; 23:0.212; 24:0.165; 25:0.212; 26:0.138; 27:0.187; 28:0.176; 29:0.148; 
+30:0.062; 31:0.139; 32:0.150; 33:0.102; 34:0.145; 35:0.202; 36:0.165; 37:0.211; 38:0.183; 39:0.111; 
+40:0.176; 41:0.189; 42:0.081; 43:0.145; 44:0.109; 45:0.213; 46:0.149; 47:0.116; 48:0.087; 49:0.138; 
+50:0.172; 51:0.125; 52:0.192; 53:0.216; 54:0.194; 55:0.104; 56:0.188; 57:0.056; 
+hit rate:     0.141
+prefetch hit rate: 0.141
+input:  - ./moe_analysis/test_prompt/xsum/36232142.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+This article details the significant flooding impacts in Newton Stewart, Hawick, Peeblesshire, and other parts of Dumfries & Galloway and the Scottish Borders, highlighting ongoing repair efforts, infrastructure disruptions, and community frustrations. Here’s a concise summary and analysis:
+
+### **Key Points:**  
+1. **Areas Affected**:  
+   - **Newton Stewart**: Severe flooding after the River Cree overflowed, breaching a retaining wall and inundating Victoria Street (the main 
+dataset name:         xsum
+file name:            36232142
+prompt eval count:    491 token(s)
+prompt eval duration: 29.92902636528015s
+prompt eval rate:     16.405478548062483 tokens/s
+eval count:           100 token(s)
+eval duration:        31.260896682739258s
+eval rate:            3.1988845686315557 tokens/s
+00:0.056; 01:0.057; 02:0.063; 03:0.061; 04:0.049; 05:0.061; 06:0.124; 07:0.082; 08:0.044; 09:0.121; 
+10:0.164; 11:0.063; 12:0.197; 13:0.110; 14:0.074; 15:0.143; 16:0.093; 17:0.092; 18:0.112; 19:0.119; 
+20:0.163; 21:0.192; 22:0.196; 23:0.193; 24:0.078; 25:0.192; 26:0.130; 27:0.136; 28:0.117; 29:0.163; 
+30:0.078; 31:0.087; 32:0.130; 33:0.122; 34:0.136; 35:0.196; 36:0.120; 37:0.082; 38:0.093; 39:0.083; 
+40:0.107; 41:0.152; 42:0.129; 43:0.188; 44:0.128; 45:0.216; 46:0.104; 47:0.112; 48:0.210; 49:0.232; 
+50:0.119; 51:0.202; 52:0.114; 53:0.170; 54:0.081; 55:0.110; 56:0.152; 57:0.072; 
+hit rate:     0.124
+prefetch hit rate: 0.124
+input:  - ./moe_analysis/test_prompt/xsum/36266422.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+This case involves serious historical allegations against John Edward Bates, a 67-year-old former scout leader and ex-police officer, who is facing 22 charges, including two counts of indecency with a child. Here’s a summary of the key details:
+
+### **Key Points of the Case:**
+1. **Defendant:**  
+   - John Edward Bates, aged 67, formerly of Spalding, Lincolnshire, now living in London.  
+   - Former RAF member 
+dataset name:         xsum
+file name:            36266422
+prompt eval count:    330 token(s)
+prompt eval duration: 20.661344051361084s
+prompt eval rate:     15.97185542139312 tokens/s
+eval count:           100 token(s)
+eval duration:        31.548197746276855s
+eval rate:            3.169753175894222 tokens/s
+00:0.057; 01:0.062; 02:0.077; 03:0.053; 04:0.074; 05:0.059; 06:0.145; 07:0.045; 08:0.056; 09:0.131; 
+10:0.164; 11:0.092; 12:0.122; 13:0.128; 14:0.114; 15:0.122; 16:0.177; 17:0.178; 18:0.104; 19:0.093; 
+20:0.170; 21:0.189; 22:0.165; 23:0.274; 24:0.136; 25:0.168; 26:0.152; 27:0.194; 28:0.177; 29:0.235; 
+30:0.063; 31:0.117; 32:0.213; 33:0.119; 34:0.049; 35:0.202; 36:0.153; 37:0.043; 38:0.066; 39:0.179; 
+40:0.231; 41:0.101; 42:0.130; 43:0.136; 44:0.087; 45:0.114; 46:0.131; 47:0.115; 48:0.086; 49:0.167; 
+50:0.194; 51:0.150; 52:0.130; 53:0.076; 54:0.056; 55:0.159; 56:0.038; 57:0.119; 
+hit rate:     0.127
+prefetch hit rate: 0.127
+input:  - ./moe_analysis/test_prompt/xsum/36888270.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+The International Paralympic Committee (IPC) has initiated proceedings against the National Paralympic Committee of Russia (NPC Russia) following Richard McLaren's report, which revealed a state-sponsored doping program in Russia from 2011 to 2015. The IPC is set to decide on a potential ban in the week starting 1 August.  
+
+### Key Points:  
+1. **IPC's Stance vs. IOC's Approach**:  
+   - The **International Olympic Committee (IOC)** chose 
+dataset name:         xsum
+file name:            36888270
+prompt eval count:    380 token(s)
+prompt eval duration: 23.97015929222107s
+prompt eval rate:     15.853044419413589 tokens/s
+eval count:           100 token(s)
+eval duration:        31.914102792739868s
+eval rate:            3.13341097662783 tokens/s
+00:0.068; 01:0.076; 02:0.081; 03:0.053; 04:0.085; 05:0.159; 06:0.125; 07:0.069; 08:0.085; 09:0.139; 
+10:0.182; 11:0.131; 12:0.258; 13:0.197; 14:0.110; 15:0.136; 16:0.146; 17:0.235; 18:0.116; 19:0.222; 
+20:0.146; 21:0.232; 22:0.186; 23:0.211; 24:0.173; 25:0.215; 26:0.145; 27:0.231; 28:0.181; 29:0.205; 
+30:0.066; 31:0.140; 32:0.173; 33:0.078; 34:0.176; 35:0.221; 36:0.234; 37:0.160; 38:0.264; 39:0.097; 
+40:0.208; 41:0.182; 42:0.201; 43:0.173; 44:0.174; 45:0.124; 46:0.251; 47:0.198; 48:0.149; 49:0.192; 
+50:0.120; 51:0.189; 52:0.111; 53:0.206; 54:0.230; 55:0.116; 56:0.086; 57:0.088; 
+hit rate:     0.159
+prefetch hit rate: 0.159
+input:  - ./moe_analysis/test_prompt/xsum/40143035.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Here’s a concise summary of the incident for clarity and potential reporting:
+
+**Key Points:**  
+1. **Fire Incident**: A deliberate fire destroyed two tour buses parked at the Holiday Inn on Hope Street, Belfast, around 04:20 BST on Saturday.  
+2. **Evacuation**: Hotel guests were evacuated and witnessed the buses engulfed in flames.  
+3. **Affected Groups**:  
+   - Two tour groups (one from **Germany**, another from **China and 
+dataset name:         xsum
+file name:            40143035
+prompt eval count:    180 token(s)
+prompt eval duration: 12.18382477760315s
+prompt eval rate:     14.773685873329699 tokens/s
+eval count:           100 token(s)
+eval duration:        33.13887858390808s
+eval rate:            3.0176036206777086 tokens/s
+00:0.056; 01:0.066; 02:0.071; 03:0.088; 04:0.083; 05:0.098; 06:0.144; 07:0.071; 08:0.074; 09:0.095; 
+10:0.168; 11:0.080; 12:0.152; 13:0.144; 14:0.122; 15:0.129; 16:0.081; 17:0.188; 18:0.088; 19:0.119; 
+20:0.197; 21:0.273; 22:0.152; 23:0.227; 24:0.092; 25:0.263; 26:0.124; 27:0.216; 28:0.149; 29:0.242; 
+30:0.112; 31:0.125; 32:0.172; 33:0.146; 34:0.117; 35:0.153; 36:0.078; 37:0.034; 38:0.167; 39:0.082; 
+40:0.129; 41:0.150; 42:0.091; 43:0.139; 44:0.107; 45:0.131; 46:0.116; 47:0.080; 48:0.098; 49:0.230; 
+50:0.092; 51:0.090; 52:0.080; 53:0.110; 54:0.107; 55:0.063; 56:0.077; 57:0.085; 
+hit rate:     0.124
+prefetch hit rate: 0.124
+
+📂 Dataset: gsm8k (5 files)
+input:  - ./moe_analysis/test_prompt/gsm8k/0.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Let's determine the total number of flowers in Mark's garden step by step.
+
+1. **Yellow Flowers**:
+   - **Given**: 10 yellow flowers.
+
+2. **Purple Flowers**:
+   - **80% more** than yellow flowers.
+   - **Calculation**: 
+     \[
+     10 \text{ (yellow)} + 80\% \text{ of } 10 = 10 + 0.8 \times 10 = 10 + 8 = 
+dataset name:         gsm8k
+file name:            0
+prompt eval count:    66 token(s)
+prompt eval duration: 5.630600929260254s
+prompt eval rate:     11.7216618313369 tokens/s
+eval count:           100 token(s)
+eval duration:        33.65557050704956s
+eval rate:            2.9712763293985405 tokens/s
+00:0.054; 01:0.057; 02:0.039; 03:0.039; 04:0.061; 05:0.058; 06:0.106; 07:0.021; 08:0.016; 09:0.016; 
+10:0.114; 11:0.020; 12:0.053; 13:0.078; 14:0.016; 15:0.025; 16:0.033; 17:0.045; 18:0.080; 19:0.025; 
+20:0.058; 21:0.097; 22:0.042; 23:0.054; 24:0.024; 25:0.023; 26:0.019; 27:0.063; 28:0.049; 29:0.030; 
+30:0.020; 31:0.003; 32:0.056; 33:0.011; 34:0.081; 35:0.088; 36:0.005; 37:0.015; 38:0.021; 39:0.059; 
+40:0.009; 41:0.081; 42:0.014; 43:0.015; 44:0.096; 45:0.018; 46:0.032; 47:0.039; 48:0.020; 49:0.009; 
+50:0.037; 51:0.040; 52:0.014; 53:0.047; 54:0.047; 55:0.034; 56:0.014; 57:0.025; 
+hit rate:     0.041
+prefetch hit rate: 0.041
+input:  - ./moe_analysis/test_prompt/gsm8k/1.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+To determine how many slices of pizza Albert eats in one day, let's break down the problem step by step.
+
+1. **Identify the number of slices per pizza:**
+   - **Large pizza:** 16 slices
+   - **Small pizza:** 8 slices
+
+2. **Calculate the total slices from large pizzas:**
+   - Albert buys **2 large pizzas**.
+   - Total slices from large pizzas = 2 × 16 = **32 slices**
+
+
+dataset name:         gsm8k
+file name:            1
+prompt eval count:    61 token(s)
+prompt eval duration: 5.44146203994751s
+prompt eval rate:     11.21022246451037 tokens/s
+eval count:           100 token(s)
+eval duration:        33.46204447746277s
+eval rate:            2.9884605546846257 tokens/s
+00:0.044; 01:0.061; 02:0.049; 03:0.051; 04:0.081; 05:0.069; 06:0.114; 07:0.039; 08:0.110; 09:0.025; 
+10:0.122; 11:0.044; 12:0.074; 13:0.049; 14:0.016; 15:0.024; 16:0.038; 17:0.032; 18:0.121; 19:0.054; 
+20:0.064; 21:0.066; 22:0.029; 23:0.067; 24:0.013; 25:0.028; 26:0.016; 27:0.078; 28:0.078; 29:0.029; 
+30:0.028; 31:0.003; 32:0.136; 33:0.042; 34:0.091; 35:0.107; 36:0.006; 37:0.014; 38:0.005; 39:0.074; 
+40:0.016; 41:0.104; 42:0.013; 43:0.019; 44:0.140; 45:0.006; 46:0.039; 47:0.053; 48:0.018; 49:0.013; 
+50:0.039; 51:0.067; 52:0.074; 53:0.049; 54:0.109; 55:0.029; 56:0.013; 57:0.011; 
+hit rate:     0.052
+prefetch hit rate: 0.052
+input:  - ./moe_analysis/test_prompt/gsm8k/2.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Let's break down the problem step by step to find the final weight of the box.
+
+1. **Initial Weight:**
+   - Ken starts with an empty box on a scale.
+   - **Weight after adding jelly beans:** 2 pounds.
+
+2. **Adding Brownies:**
+   - The weight triples after adding brownies.
+   - **New weight:** \( 2 \text{ pounds} \times 3 = 6 \text{ pounds} \).
+
+3. 
+dataset name:         gsm8k
+file name:            2
+prompt eval count:    105 token(s)
+prompt eval duration: 7.997604131698608s
+prompt eval rate:     13.128931898970984 tokens/s
+eval count:           100 token(s)
+eval duration:        33.20482778549194s
+eval rate:            3.0116102587857 tokens/s
+00:0.038; 01:0.056; 02:0.063; 03:0.045; 04:0.082; 05:0.056; 06:0.128; 07:0.030; 08:0.098; 09:0.025; 
+10:0.145; 11:0.052; 12:0.106; 13:0.098; 14:0.025; 15:0.068; 16:0.028; 17:0.061; 18:0.130; 19:0.034; 
+20:0.074; 21:0.072; 22:0.040; 23:0.058; 24:0.015; 25:0.058; 26:0.023; 27:0.064; 28:0.054; 29:0.068; 
+30:0.016; 31:0.018; 32:0.148; 33:0.051; 34:0.105; 35:0.169; 36:0.010; 37:0.034; 38:0.051; 39:0.051; 
+40:0.074; 41:0.115; 42:0.013; 43:0.038; 44:0.117; 45:0.008; 46:0.037; 47:0.057; 48:0.034; 49:0.011; 
+50:0.047; 51:0.076; 52:0.006; 53:0.119; 54:0.157; 55:0.024; 56:0.030; 57:0.032; 
+hit rate:     0.061
+prefetch hit rate: 0.061
+input:  - ./moe_analysis/test_prompt/gsm8k/3.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+To determine how much Alexis paid for the shoes, let's follow these steps:
+
+1. **List all the expenses:**
+   - Button-up shirt: \$30
+   - Suit pants: \$46
+   - Suit coat: \$38
+   - Socks: \$11
+   - Belt: \$18
+   - **Shoes: ?** (Let's denote this as \( x \))
+
+2. **Calculate the total amount spent on known items:**
+  
+dataset name:         gsm8k
+file name:            3
+prompt eval count:    105 token(s)
+prompt eval duration: 7.981834650039673s
+prompt eval rate:     13.154870352955522 tokens/s
+eval count:           100 token(s)
+eval duration:        33.488346576690674s
+eval rate:            2.986113386368388 tokens/s
+00:0.051; 01:0.053; 02:0.048; 03:0.053; 04:0.064; 05:0.074; 06:0.125; 07:0.038; 08:0.096; 09:0.011; 
+10:0.115; 11:0.120; 12:0.102; 13:0.058; 14:0.028; 15:0.083; 16:0.048; 17:0.058; 18:0.159; 19:0.053; 
+20:0.052; 21:0.083; 22:0.032; 23:0.057; 24:0.015; 25:0.053; 26:0.054; 27:0.052; 28:0.061; 29:0.051; 
+30:0.023; 31:0.028; 32:0.144; 33:0.048; 34:0.078; 35:0.163; 36:0.035; 37:0.053; 38:0.047; 39:0.076; 
+40:0.122; 41:0.092; 42:0.028; 43:0.072; 44:0.266; 45:0.030; 46:0.038; 47:0.069; 48:0.010; 49:0.024; 
+50:0.064; 51:0.080; 52:0.003; 53:0.083; 54:0.077; 55:0.047; 56:0.028; 57:0.040; 
+hit rate:     0.066
+prefetch hit rate: 0.066
+input:  - ./moe_analysis/test_prompt/gsm8k/4.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Let's break down Tina's earnings step by step.
+
+### **1. Determine Regular and Overtime Hours:**
+- **Regular Hours per Day:** 8 hours
+- **Overtime Hours per Day:** 10 hours (total) - 8 hours (regular) = **2 hours**
+
+### **2. Calculate Overtime Pay Rate:**
+- **Hourly Wage:** \$18.00
+- **Overtime Rate:** \$18.00 + 
+dataset name:         gsm8k
+file name:            4
+prompt eval count:    66 token(s)
+prompt eval duration: 5.707328796386719s
+prompt eval rate:     11.564078810701123 tokens/s
+eval count:           100 token(s)
+eval duration:        32.8059766292572s
+eval rate:            3.0482250575895815 tokens/s
+00:0.069; 01:0.035; 02:0.071; 03:0.035; 04:0.076; 05:0.056; 06:0.145; 07:0.025; 08:0.073; 09:0.068; 
+10:0.145; 11:0.135; 12:0.115; 13:0.049; 14:0.025; 15:0.066; 16:0.038; 17:0.117; 18:0.106; 19:0.057; 
+20:0.052; 21:0.117; 22:0.097; 23:0.100; 24:0.140; 25:0.110; 26:0.063; 27:0.088; 28:0.085; 29:0.105; 
+30:0.040; 31:0.015; 32:0.146; 33:0.081; 34:0.092; 35:0.168; 36:0.053; 37:0.037; 38:0.047; 39:0.111; 
+40:0.081; 41:0.091; 42:0.110; 43:0.057; 44:0.246; 45:0.059; 46:0.044; 47:0.059; 48:0.018; 49:0.125; 
+50:0.130; 51:0.098; 52:0.018; 53:0.126; 54:0.091; 55:0.043; 56:0.032; 57:0.025; 
+hit rate:     0.081
+prefetch hit rate: 0.081
+
+📂 Dataset: awesome_chatgpt_prompts (5 files)
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/0.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+# Blockchain Messenger Smart Contract
+
+Here's a Solidity smart contract that implements a blockchain messenger with the following features:
+- Publicly readable messages
+- Only the contract owner (deployer) can write/update messages
+- Tracks how many times the message was updated
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract BlockchainMessenger {
+    // The current message stored on the blockchain
+    string private 
+dataset name:         awesome_chatgpt_prompts
+file name:            0
+prompt eval count:    104 token(s)
+prompt eval duration: 7.980072021484375s
+prompt eval rate:     13.032463832407235 tokens/s
+eval count:           100 token(s)
+eval duration:        32.08265209197998s
+eval rate:            3.1169493006158926 tokens/s
+00:0.058; 01:0.053; 02:0.052; 03:0.049; 04:0.044; 05:0.067; 06:0.072; 07:0.032; 08:0.016; 09:0.024; 
+10:0.107; 11:0.043; 12:0.051; 13:0.080; 14:0.023; 15:0.040; 16:0.058; 17:0.024; 18:0.058; 19:0.037; 
+20:0.071; 21:0.043; 22:0.014; 23:0.051; 24:0.040; 25:0.093; 26:0.020; 27:0.067; 28:0.049; 29:0.044; 
+30:0.034; 31:0.008; 32:0.045; 33:0.039; 34:0.039; 35:0.092; 36:0.032; 37:0.021; 38:0.016; 39:0.014; 
+40:0.019; 41:0.045; 42:0.042; 43:0.043; 44:0.034; 45:0.062; 46:0.030; 47:0.010; 48:0.016; 49:0.024; 
+50:0.034; 51:0.023; 52:0.014; 53:0.023; 54:0.010; 55:0.034; 56:0.027; 57:0.039; 
+hit rate:     0.041
+prefetch hit rate: 0.041
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/1.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Here’s a comprehensive **2,000-word article outline** for **"Best SEO Prompts"**, split into **Part 1** and **Part 2**, based on the top 10 Google results. The outline includes **high keyword density**, **LSI/NLP keywords**, **FAQs**, and **external links**.  
+
+---
+
+### **Part 1: Best SEO Prompts – Introduction, Types, and Use Cases**  
+**Total Word Count: 1,000 
+dataset name:         awesome_chatgpt_prompts
+file name:            1
+prompt eval count:    175 token(s)
+prompt eval duration: 12.022114038467407s
+prompt eval rate:     14.556508068385384 tokens/s
+eval count:           100 token(s)
+eval duration:        31.344491481781006s
+eval rate:            3.190353241433986 tokens/s
+00:0.073; 01:0.061; 02:0.063; 03:0.047; 04:0.062; 05:0.081; 06:0.141; 07:0.058; 08:0.068; 09:0.009; 
+10:0.168; 11:0.033; 12:0.149; 13:0.121; 14:0.015; 15:0.090; 16:0.092; 17:0.040; 18:0.146; 19:0.096; 
+20:0.168; 21:0.122; 22:0.105; 23:0.139; 24:0.154; 25:0.154; 26:0.048; 27:0.116; 28:0.076; 29:0.028; 
+30:0.044; 31:0.003; 32:0.078; 33:0.087; 34:0.071; 35:0.069; 36:0.052; 37:0.057; 38:0.015; 39:0.009; 
+40:0.004; 41:0.053; 42:0.056; 43:0.023; 44:0.074; 45:0.039; 46:0.143; 47:0.020; 48:0.033; 49:0.009; 
+50:0.059; 51:0.124; 52:0.029; 53:0.058; 54:0.082; 55:0.053; 56:0.021; 57:0.062; 
+hit rate:     0.072
+prefetch hit rate: 0.072
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/2.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+```
+/home/user
+```
+dataset name:         awesome_chatgpt_prompts
+file name:            2
+prompt eval count:    96 token(s)
+prompt eval duration: 7.490443229675293s
+prompt eval rate:     12.816331030942418 tokens/s
+eval count:           6 token(s)
+eval duration:        1.5982327461242676s
+eval rate:            3.75414658130993 tokens/s
+00:0.100; 01:0.050; 02:0.175; 03:0.025; 04:0.025; 05:0.000; 06:0.225; 07:0.050; 08:0.150; 09:0.000; 
+10:0.100; 11:0.025; 12:0.100; 13:0.125; 14:0.075; 15:0.075; 16:0.200; 17:0.050; 18:0.100; 19:0.125; 
+20:0.075; 21:0.125; 22:0.125; 23:0.175; 24:0.100; 25:0.050; 26:0.000; 27:0.025; 28:0.150; 29:0.025; 
+30:0.100; 31:0.000; 32:0.125; 33:0.025; 34:0.100; 35:0.125; 36:0.025; 37:0.025; 38:0.075; 39:0.050; 
+40:0.050; 41:0.050; 42:0.075; 43:0.025; 44:0.100; 45:0.075; 46:0.100; 47:0.000; 48:0.000; 49:0.025; 
+50:0.075; 51:0.000; 52:0.100; 53:0.050; 54:0.000; 55:0.000; 56:0.025; 57:0.050; 
+hit rate:     0.070
+prefetch hit rate: 0.070
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/3.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+"I adore Istanbul; being here is absolutely delightful."
+dataset name:         awesome_chatgpt_prompts
+file name:            3
+prompt eval count:    132 token(s)
+prompt eval duration: 9.53639006614685s
+prompt eval rate:     13.841715689523404 tokens/s
+eval count:           11 token(s)
+eval duration:        3.18347430229187s
+eval rate:            3.455344367655426 tokens/s
+00:0.050; 01:0.062; 02:0.087; 03:0.087; 04:0.062; 05:0.050; 06:0.263; 07:0.125; 08:0.125; 09:0.037; 
+10:0.100; 11:0.175; 12:0.350; 13:0.138; 14:0.037; 15:0.275; 16:0.250; 17:0.050; 18:0.175; 19:0.188; 
+20:0.263; 21:0.100; 22:0.163; 23:0.200; 24:0.200; 25:0.062; 26:0.138; 27:0.037; 28:0.138; 29:0.075; 
+30:0.113; 31:0.150; 32:0.075; 33:0.050; 34:0.087; 35:0.188; 36:0.125; 37:0.062; 38:0.013; 39:0.013; 
+40:0.000; 41:0.062; 42:0.037; 43:0.025; 44:0.113; 45:0.075; 46:0.062; 47:0.050; 48:0.000; 49:0.037; 
+50:0.113; 51:0.200; 52:0.087; 53:0.037; 54:0.062; 55:0.050; 56:0.062; 57:0.087; 
+hit rate:     0.105
+prefetch hit rate: 0.105
+input:  - ./moe_analysis/test_prompt/awesome_chatgpt_prompts/4.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Hi! Thank you for joining us today. Let’s get started.  
+
+**Can you tell me a little about yourself and your professional background?**
+dataset name:         awesome_chatgpt_prompts
+file name:            4
+prompt eval count:    101 token(s)
+prompt eval duration: 7.758489370346069s
+prompt eval rate:     13.017998115204593 tokens/s
+eval count:           32 token(s)
+eval duration:        9.568070650100708s
+eval rate:            3.344456909885295 tokens/s
+00:0.056; 01:0.036; 02:0.081; 03:0.060; 04:0.073; 05:0.121; 06:0.194; 07:0.065; 08:0.190; 09:0.040; 
+10:0.133; 11:0.238; 12:0.149; 13:0.194; 14:0.060; 15:0.121; 16:0.190; 17:0.230; 18:0.230; 19:0.133; 
+20:0.194; 21:0.117; 22:0.093; 23:0.173; 24:0.161; 25:0.161; 26:0.073; 27:0.165; 28:0.137; 29:0.226; 
+30:0.198; 31:0.129; 32:0.113; 33:0.012; 34:0.105; 35:0.133; 36:0.040; 37:0.121; 38:0.004; 39:0.069; 
+40:0.040; 41:0.129; 42:0.028; 43:0.052; 44:0.185; 45:0.065; 46:0.165; 47:0.101; 48:0.060; 49:0.020; 
+50:0.149; 51:0.125; 52:0.109; 53:0.060; 54:0.048; 55:0.060; 56:0.093; 57:0.065; 
+hit rate:     0.113
+prefetch hit rate: 0.113
+
+📂 Dataset: humaneval (5 files)
+input:  - ./moe_analysis/test_prompt/humaneval/0.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+To solve this problem, we need to decompose a given positive floating-point number into its integer part and the decimal part. The decimal part is the leftover part after subtracting the integer part from the original number, and it is always smaller than 1. 
+
+### Approach
+1. **Extract the Integer Part**: The integer part of a positive floating-point number can be obtained by taking the floor of the number, which is the largest integer less than or equal to the number. In Python, 
+dataset name:         humaneval
+file name:            0
+prompt eval count:    73 token(s)
+prompt eval duration: 7.520557403564453s
+prompt eval rate:     9.70672731856296 tokens/s
+eval count:           100 token(s)
+eval duration:        32.32975244522095s
+eval rate:            3.0931260661348556 tokens/s
+00:0.040; 01:0.072; 02:0.053; 03:0.044; 04:0.032; 05:0.053; 06:0.061; 07:0.073; 08:0.027; 09:0.043; 
+10:0.138; 11:0.063; 12:0.052; 13:0.027; 14:0.053; 15:0.095; 16:0.029; 17:0.025; 18:0.069; 19:0.042; 
+20:0.111; 21:0.122; 22:0.014; 23:0.078; 24:0.013; 25:0.158; 26:0.025; 27:0.047; 28:0.035; 29:0.032; 
+30:0.034; 31:0.013; 32:0.063; 33:0.015; 34:0.029; 35:0.059; 36:0.038; 37:0.035; 38:0.030; 39:0.020; 
+40:0.053; 41:0.148; 42:0.040; 43:0.016; 44:0.077; 45:0.121; 46:0.044; 47:0.085; 48:0.019; 49:0.025; 
+50:0.024; 51:0.069; 52:0.018; 53:0.011; 54:0.023; 55:0.019; 56:0.030; 57:0.051; 
+hit rate:     0.051
+prefetch hit rate: 0.051
+input:  - ./moe_analysis/test_prompt/humaneval/1.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+To solve this problem, we need to determine if the balance of a bank account ever falls below zero at any point during a series of deposit and withdrawal operations. The account starts with a zero balance, and each operation in the list is applied sequentially. We need to check the balance after each operation to see if it becomes negative. If it does, we return `True` immediately. If we process all operations without the balance ever going negative, we return `False`.
+
+### Approach
+1. 
+dataset name:         humaneval
+file name:            1
+prompt eval count:    103 token(s)
+prompt eval duration: 8.358684778213501s
+prompt eval rate:     12.322512779578004 tokens/s
+eval count:           100 token(s)
+eval duration:        32.341187715530396s
+eval rate:            3.0920323916236234 tokens/s
+00:0.053; 01:0.048; 02:0.028; 03:0.063; 04:0.062; 05:0.042; 06:0.096; 07:0.106; 08:0.034; 09:0.074; 
+10:0.168; 11:0.083; 12:0.045; 13:0.025; 14:0.054; 15:0.104; 16:0.042; 17:0.048; 18:0.134; 19:0.037; 
+20:0.081; 21:0.078; 22:0.015; 23:0.072; 24:0.021; 25:0.052; 26:0.045; 27:0.053; 28:0.080; 29:0.040; 
+30:0.035; 31:0.016; 32:0.092; 33:0.057; 34:0.105; 35:0.100; 36:0.042; 37:0.032; 38:0.045; 39:0.068; 
+40:0.056; 41:0.139; 42:0.045; 43:0.038; 44:0.059; 45:0.135; 46:0.024; 47:0.080; 48:0.034; 49:0.042; 
+50:0.013; 51:0.145; 52:0.016; 53:0.014; 54:0.009; 55:0.009; 56:0.043; 57:0.057; 
+hit rate:     0.059
+prefetch hit rate: 0.059
+input:  - ./moe_analysis/test_prompt/humaneval/2.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+To calculate the Mean Absolute Deviation (MAD) around the mean of a dataset, follow these steps:
+
+1. **Calculate the mean (average) of the dataset.**
+2. **Compute the absolute difference between each data point and the mean.**
+3. **Find the average of these absolute differences.**
+
+Here's the implementation of the `mean_absolute_deviation` function:
+
+```python
+from typing import List
+
+def mean_absolute_deviation(numbers: List[float]) -> float:
+
+dataset name:         humaneval
+file name:            2
+prompt eval count:    103 token(s)
+prompt eval duration: 7.660411596298218s
+prompt eval rate:     13.445752712526994 tokens/s
+eval count:           100 token(s)
+eval duration:        32.340794801712036s
+eval rate:            3.0920699572512134 tokens/s
+00:0.044; 01:0.049; 02:0.054; 03:0.042; 04:0.056; 05:0.076; 06:0.087; 07:0.074; 08:0.068; 09:0.028; 
+10:0.126; 11:0.088; 12:0.093; 13:0.053; 14:0.053; 15:0.068; 16:0.074; 17:0.047; 18:0.085; 19:0.064; 
+20:0.115; 21:0.110; 22:0.027; 23:0.160; 24:0.053; 25:0.077; 26:0.023; 27:0.068; 28:0.106; 29:0.072; 
+30:0.033; 31:0.009; 32:0.115; 33:0.045; 34:0.025; 35:0.085; 36:0.040; 37:0.034; 38:0.062; 39:0.066; 
+40:0.020; 41:0.112; 42:0.078; 43:0.042; 44:0.110; 45:0.080; 46:0.061; 47:0.062; 48:0.027; 49:0.034; 
+50:0.037; 51:0.095; 52:0.024; 53:0.039; 54:0.066; 55:0.040; 56:0.039; 57:0.051; 
+hit rate:     0.063
+prefetch hit rate: 0.063
+input:  - ./moe_analysis/test_prompt/humaneval/3.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+Here's the implementation of the `filter_by_substring` function:
+
+```python
+from typing import List
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    """
+    Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_substring([], 'a')
+    []
+    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 
+dataset name:         humaneval
+file name:            3
+prompt eval count:    84 token(s)
+prompt eval duration: 6.613710403442383s
+prompt eval rate:     12.700888741103432 tokens/s
+eval count:           100 token(s)
+eval duration:        32.4977445602417s
+eval rate:            3.0771366245010654 tokens/s
+00:0.037; 01:0.040; 02:0.030; 03:0.049; 04:0.054; 05:0.030; 06:0.066; 07:0.086; 08:0.043; 09:0.035; 
+10:0.101; 11:0.080; 12:0.086; 13:0.069; 14:0.042; 15:0.144; 16:0.095; 17:0.061; 18:0.067; 19:0.049; 
+20:0.091; 21:0.083; 22:0.044; 23:0.092; 24:0.083; 25:0.042; 26:0.076; 27:0.043; 28:0.082; 29:0.081; 
+30:0.040; 31:0.071; 32:0.053; 33:0.040; 34:0.016; 35:0.062; 36:0.064; 37:0.037; 38:0.064; 39:0.029; 
+40:0.051; 41:0.066; 42:0.025; 43:0.040; 44:0.045; 45:0.088; 46:0.044; 47:0.056; 48:0.038; 49:0.059; 
+50:0.042; 51:0.056; 52:0.034; 53:0.073; 54:0.029; 55:0.086; 56:0.040; 57:0.018; 
+hit rate:     0.058
+prefetch hit rate: 0.058
+input:  - ./moe_analysis/test_prompt/humaneval/4.txt
+output: - None
+Main thread: MainThread, id: 139977568442176
+==++++++++++++>>>>. model.layers.3.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.4.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.5.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.6.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.7.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.8.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.9.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.10.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.11.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.12.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.13.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.14.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.15.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.16.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.17.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.18.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.19.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.20.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.21.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.22.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.23.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.24.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.25.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.26.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.27.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.28.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.29.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.30.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.31.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.32.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.33.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.34.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.35.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.36.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.37.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.38.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.39.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.40.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.41.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.42.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.43.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.44.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.45.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.46.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.47.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.48.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.49.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.50.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.51.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.52.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.53.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.54.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.55.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.56.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.57.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.58.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.59.mlp.experts: Expert cache initialized
+==++++++++++++>>>>. model.layers.60.mlp.experts: Expert cache initialized
+To solve this problem, we need to find how many times a given substring appears in a string, including overlapping cases. For example, in the string 'aaaa', the substring 'aa' appears three times if we consider overlaps.
+
+### Approach
+1. **Edge Cases Handling**: 
+   - If the string is empty or the substring is empty, return 0 since no substring can be found in an empty string.
+   - If the length of the substring is greater than the length of the 
+dataset name:         humaneval
+file name:            4
+prompt eval count:    83 token(s)
+prompt eval duration: 6.80033278465271s
+prompt eval rate:     12.205285039478957 tokens/s
+eval count:           100 token(s)
+eval duration:        32.698527574539185s
+eval rate:            3.0582416829638936 tokens/s
+00:0.040; 01:0.069; 02:0.051; 03:0.039; 04:0.064; 05:0.053; 06:0.120; 07:0.102; 08:0.035; 09:0.111; 
+10:0.144; 11:0.104; 12:0.135; 13:0.019; 14:0.049; 15:0.112; 16:0.086; 17:0.052; 18:0.056; 19:0.034; 
+20:0.074; 21:0.074; 22:0.037; 23:0.083; 24:0.087; 25:0.039; 26:0.027; 27:0.053; 28:0.135; 29:0.101; 
+30:0.042; 31:0.069; 32:0.068; 33:0.032; 34:0.066; 35:0.049; 36:0.037; 37:0.030; 38:0.061; 39:0.037; 
+40:0.023; 41:0.143; 42:0.053; 43:0.019; 44:0.086; 45:0.104; 46:0.030; 47:0.087; 48:0.033; 49:0.139; 
+50:0.025; 51:0.074; 52:0.008; 53:0.030; 54:0.018; 55:0.020; 56:0.025; 57:0.059; 
+hit rate:     0.063
+prefetch hit rate: 0.063
+ERROR: Could not consume arg: --skip_layer
+Usage: local_chat.py --model_path /mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config/ --gguf_path /mnt/incontainer/models/deepseek-ai_DeepSeek-V3-0324-GGUF/deepseek-ai_DeepSeek-V3-0324-IQ4_XS/ --prompt_file ./myprompt.txt --max_new_tokens 100 --cpu_infer 10 --baseline 0 --prefetch_num -1 --prefetch_method 0 --gpu_compute_max_num 7 --prefetch_strategy 0 --skip_layer 1 -
+
+For detailed information on this command, run:
+  local_chat.py --model_path /mnt/incontainer/models/DeepSeek-V3/DeepSeek-V3-0324-config/ --gguf_path /mnt/incontainer/models/deepseek-ai_DeepSeek-V3-0324-GGUF/deepseek-ai_DeepSeek-V3-0324-IQ4_XS/ --prompt_file ./myprompt.txt --max_new_tokens 100 --cpu_infer 10 --baseline 0 --prefetch_num -1 --prefetch_method 0 --gpu_compute_max_num 7 --prefetch_strategy 0 --skip_layer 1 - --help
+
+=== PROCESS RETURN CODE: 2 ===
