@@ -11,7 +11,7 @@ RUN apt update -y &&  apt install -y  --no-install-recommends \
 rm -rf /var/lib/apt/lists/* && \
 pip install --upgrade pip && \
 pip install ninja pyproject numpy cpufeature cmake && \
-pip install flash-attn && \
+pip install flash-attn --no-build-isolation && \
 cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/conda/lib/
 
 ENV PATH=/opt/conda/bin:$PATH
