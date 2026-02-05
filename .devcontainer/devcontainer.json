@@ -1,5 +1,5 @@
 {
-    "name": "Ktrans Dev Container",
+    "name": "SMOE Container",
     "privileged": true,
     "build": {
         "dockerfile": "Dockerfile",
