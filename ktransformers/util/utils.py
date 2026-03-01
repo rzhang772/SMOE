@@ -8,11 +8,11 @@ Copyright (c) 2024 by KVCache.AI, All Rights Reserved.
 '''
 import torch
 from torch import nn
+import nvtx
 import itertools
 import time
+import json 
 import enum
-import sys
-import nvtx
 import pandas as pd
 from transformers import (
     LogitsProcessorList,
@@ -30,6 +30,7 @@ from ktransformers.operators import base_operator
 from ktransformers.models.custom_cache import StaticCache
 from ktransformers.util.cuda_graph_runner import CUDAGraphRunner
 from ktransformers.util.textstream import TextStreamer
+from ktransformers.server.config.config import Config
 if not torch.xpu.is_available():
     from ktransformers.operators.flashinfer_wrapper import MLAWrapperSingleton
 import socket
@@ -111,10 +112,11 @@ def load_cur_state_dict(module: nn.Module, gguf_loader: ModelLoader, prefix: str
     for name, param in local_state.items():
         key = prefix + name
         translated_key = key
+        # print(f"==========>>> loading {translated_key} to {device}")
         
         # TODO: Merge all loader.
         # I know this is ugly but lets do it for now.
-        if isinstance(gguf_loader, SafeTensorLoader):
+        if isinstance(gguf_loader, SafeTensorLoader): # 如果文件是safetensor格式，也就是非量化版本
             load_dequantized_tensor = gguf_loader.load_dequantized_tensor
         else:
             load_dequantized_tensor = gguf_loader.load_gguf_tensor
@@ -123,7 +125,7 @@ def load_cur_state_dict(module: nn.Module, gguf_loader: ModelLoader, prefix: str
         if gguf_loader.has_tensor(translated_key):
             target_dtype = torch.get_default_dtype()
             device = get_device(translated_key[:translated_key.rfind(".")], gguf_loader.tensor_device_map)
-            print(f"loading {translated_key} to {device}")
+            # print(f"loading {translated_key} to {device}")
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
             elif torch.xpu.is_available():
@@ -147,15 +149,14 @@ def sync_all_device(all_device_list):
 
 torch_device_mapping ={"cuda": "cuda:0", "xpu": "xpu:0"}
 
-@nvtx.annotate("load_weights")
 def load_weights(module:nn.Module, gguf_loader:ModelLoader, prefix='', device="cuda"):
     #print(f"recursively loading weights {prefix}")
-    if not isinstance(module, base_operator.BaseInjectedModule):
+    if not isinstance(module, base_operator.BaseInjectedModule): # 如果是原始的模块，则在这里加载权重
         load_cur_state_dict(module, gguf_loader, prefix, device=device)
         for name, child in module._modules.items():
             load_weights(child, gguf_loader, prefix+name+".", device=device)
     else:
-        module.load()
+        module.load() # 如果是被注入的模块，则调用其load方法加载权重
 
 def tf_logits_warper(generation_config):
         """
@@ -207,10 +208,11 @@ def tf_logits_warper(generation_config):
         if generation_config.renormalize_logits is True:
             warpers.append(LogitNormalization())
         return warpers
+
 @nvtx.annotate("prefill_and_generate")
 def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cuda_graph: bool = True,
                          mode = 'normal', force_think: bool = False, chunk_size = 16384, use_flashinfer_mla = False,
-                         num_heads = None, head_dim_ckv = None, head_dim_kpe = None, q_head_dim = None, prompt_name = None, dataset = None, file_name = None):
+                         num_heads = None, head_dim_ckv = None, head_dim_kpe = None, q_head_dim = None, prompt_name = None, dataset_name = None, file_name = None):
     import os
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
     torch._dynamo.config.suppress_errors = True
@@ -222,9 +224,9 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
     all_cuda_device = get_all_used_cuda_device(device_map)
 
     tokens = []
-
+    
     @nvtx.annotate("decode_one_tokens")
-    def decode_one_tokens(cuda_graph_runner, cur_token, position_ids, cache_position, past_key_values, logits_warper, generation_config, use_cuda_graph: bool = True, prompt_name = None, token_idx = None):
+    def decode_one_tokens(cuda_graph_runner, cur_token, position_ids, cache_position, past_key_values, logits_warper, generation_config, use_cuda_graph: bool = True, prompt_name = None, token_idx = None, hit_rate = None, timebreak = None):
         if cuda_graph_runner is None:
             use_cuda_graph = False
         use_cuda_graph = False
@@ -245,22 +247,26 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
                         cache_position=cache_position,
                         past_key_values=past_key_values,
                         return_dict=False, use_cache=True,
-                        # prompt_name = prompt_name,
-                        # mode = "decode",
-                        # token_idx = token_idx
-                        )[0]
+                        prompt_name = prompt_name,
+                        mode = "decode",
+                        token_idx = token_idx,
+                        hit_rate = hit_rate, timebreak = timebreak)[0]
         if past_key_values != None and isinstance(past_key_values, StaticCache):
             past_key_values.change_seq_length(1)
         sync_all_device(all_cuda_device)
         #print(logits)
         next_token_scores = logits_warper(inputs, logits[:, -1, :])
+        # print(f"\nnext_token_scores.shape: {next_token_scores.shape}")
         if generation_config.do_sample:
             probs = nn.functional.softmax(next_token_scores, dim=-1)
             next_token = torch.multinomial(probs, num_samples=1).squeeze(1)
+            # print(f"Token: {next_token}, Prob: {probs[0,next_token].item()}\n")
         else:
             next_token = torch.argmax(next_token_scores, dim=-1)
-            score = next_token_scores[0,next_token]
-        return next_token, 0
+            # score = next_token_scores[0, next_token].item()
+            # prob = nn.functional.softmax(next_token_scores, dim=-1)[0, next_token].item()
+        # print(f"\nnext_token: {next_token}; next_token_score: {next_token_scores[0, next_token].item()}; prob: {probs[0,next_token].item()}\n")
+        return next_token, 0, 0
     
     # TODO: use CUDA Graph for chunk prefill, may get small improvement
     @nvtx.annotate("chunk_prefill")
@@ -274,10 +280,7 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
             MLAWrapperSingleton.need_plan_all()
             
         logits = model(
-            inputs_embeds = inputs_embeds, 
-            cache_position=cache_position, 
-            past_key_values=past_key_values, 
-            return_dict=False, use_cache=True
+            inputs_embeds = inputs_embeds, cache_position=cache_position, past_key_values=past_key_values, return_dict=False, use_cache=True
         )[0][:,-1,:].unsqueeze(0).clone().to(torch_device)
         
         return logits
@@ -302,7 +305,7 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
             past_key_values = None
         
         generation_config, model_kwargs = model._prepare_generation_config(
-            None, do_sample=True
+            None, do_sample=True,
             # change this to modify generate config
             #top_k=5, top_p=0.85, temperature=0.1
         )
@@ -335,7 +338,6 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
             chunk_start += chunk_size
 
         next_token_scores = logits_warper(inputs, logits[:, -1, :])
-        # sys.exit(0)
         if generation_config.do_sample:
             probs = nn.functional.softmax(next_token_scores, dim=-1)
             next_token = torch.multinomial(probs, num_samples=1).squeeze(1)
@@ -360,13 +362,29 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
         seq_length += 1
         
         cuda_graph_runner = None
-
-        # decode_token_kt = {
+        
+        # decode_id_and_prob = {
         #     'token_id': [],
         #     'score': [],
+        #     'prob': [],
         # }
-            
+
         start_time = time.time()
+        use_cuda_graph = False
+        hit_rate = [[] for _ in range(58)]
+        timebreak = {
+            'token_id': [],
+            'layer_id': [],
+            'hn_rate': [],
+            'overhead_time1': [],
+            'cpu_time': [],
+            'shared_expert_time': [],
+            'wait_cache_time': [],
+            'gpu_compute_time': [],
+            'predict_time': [],
+            'prefetch_submit_time': [],
+            'total_decode_time': [],
+        }
         for i in range(1, max_new_tokens):
             if use_flashinfer_mla:
                 MLAWrapperSingleton.plan_all(None,None,None,position_ids.squeeze(1)+1,None,
@@ -389,8 +407,7 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
             #     prof.step()
             # prof.export_chrome_trace(f"./generate_{i}.json")
 
-            next_token, score = decode_one_tokens(cuda_graph_runner, 
-                                           next_token.unsqueeze(0), 
+            next_token, score, prob = decode_one_tokens(cuda_graph_runner, next_token.unsqueeze(0), 
                                            position_ids, 
                                            cache_position, 
                                            past_key_values, 
@@ -398,17 +415,20 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
                                            generation_config, 
                                            use_cuda_graph, 
                                            prompt_name = prompt_name, 
-                                           token_idx=i)
+                                           token_idx=i,
+                                           hit_rate=hit_rate,
+                                           timebreak=timebreak,
+                                           )
             next_token = next_token.to(torch_device)
 
-            # decode_token_kt['token_id'].append(int(next_token))
-            # decode_token_kt['score'].append(float(score.cpu().numpy()))
-
+            # decode_id_and_prob['token_id'].append(int(next_token))
+            # decode_id_and_prob['score'].append(float(score))
+            # decode_id_and_prob['prob'].append(float(prob))
+            
             inputs = torch.cat((inputs, next_token.unsqueeze(0)), dim=-1)
             generated_ids[:, cache_position] = next_token.int()
             tokens.append(int(next_token))
             seq_length += 1
-            # sys.exit(1)
             
             if next_token[0].item() == tokenizer.eos_token_id or tokenizer.decode(next_token.tolist()) == '<|im_end|>':
                 print(stream.end(), end="", flush=True)
@@ -419,25 +439,42 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
             cache_position += 1
             position_ids = cache_position.unsqueeze(0)
         
-    # 检查点目录是否存在，不存在则创建
-    # if not os.path.exists(f"./expirments/KTexpirments/decode_tokens_kt/"):
-    #     os.makedirs(f"./expirments/KTexpirments/decode_tokens_kt/")
-    # df = pd.DataFrame(decode_token_kt)
-    # df.to_csv(f"./expirments/KTexpirments/decode_tokens_kt/{dataset}_{file_name}.csv", index=False)
-
+    # KExpertsCPU.stop_thread() # stop prefetch thread
     total_time = time.time() - start_time
     tokens_generated = len(tokens)
     tokens_per_second = tokens_generated / total_time
+    # with open("list.json", "w") as f:
+    #     json.dump(hit_rate, f)
+    # 判断是否存在expirments文件夹，不存在则创建
+    # if not os.path.exists("./expirments/decode_tokens/"):
+    #     os.makedirs("./expirments/decode_tokens/")
+    # df = pd.DataFrame(decode_id_and_prob)
+    # df.to_csv(f"./expirments/decode_tokens/{dataset_name}_{file_name}.csv", index=False)
+    if not os.path.exists("./expirments/decode_timebreak/"):
+        os.makedirs("./expirments/decode_timebreak/")
+    df_timebreak = pd.DataFrame(timebreak)
+    method = 'tokenwise' if Config().prefetch_method == 0 else 'layerwise'
+    df_timebreak.to_csv(f"./expirments/decode_timebreak/{dataset_name}_{file_name}_timebreak_{method}.csv", index=False)
+    
 
     print("")
-    print(f"dataset name:              {dataset}")
-    print(f"file name:                 {file_name}")
+    print(f"dataset name:         {dataset_name}")
+    print(f"file name:            {file_name}")
     print(f"prompt eval count:    {prefill_count} token(s)")
     print(f"prompt eval duration: {prefill_time}s")
     print(f"prompt eval rate:     {prefill_count/prefill_time} tokens/s")
     print(f"eval count:           {tokens_generated} token(s)")
     print(f"eval duration:        {total_time}s")
     print(f"eval rate:            {tokens_per_second} tokens/s")
+
+    layers_hits = [sum(x)/len(x) if len(x)>0 else 0 for x in hit_rate]
+    for layer_id, rate in enumerate(layers_hits):
+        print(f"{layer_id:02d}:{rate:.3f};", end=" ")
+        if layer_id % 10 == 9:
+            print("")
+    prefetch_layers_hit_rate = sum(layers_hits[Config().prefetch_start_layer:])/len(layers_hits[Config().prefetch_start_layer:]) if len(layers_hits[Config().prefetch_start_layer:])>0 else 0
+    print(f"\nhit rate:     {sum(layers_hits)/len(layers_hits):.3f}")
+    print(f"prefetch hit rate: {prefetch_layers_hit_rate:.3f}")
 
     return tokens
 

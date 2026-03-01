@@ -324,7 +324,7 @@ void KVCache::BlockResize(int max_block_num) {
 
 void KVCache::calc_anchor_all_layers(int *block_table, int *cache_seqlens,
                                      int batch_size, int max_block_num,
-                                     Backend *backend) {
+                                    KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -1014,7 +1014,7 @@ void KVCache::calc_anchor_all_layers(int *block_table, int *cache_seqlens,
 
 void KVCache::clear_importance_all_layers(int *block_table, int *cache_seqlens,
                                           int batch_size, int max_block_num,
-                                          Backend *backend) {
+                                          KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -1056,7 +1056,7 @@ void KVCache::clear_importance_all_layers(int *block_table, int *cache_seqlens,
 
 void KVCache::clear_kvcache_all_layers(int *block_table, int *cache_seqlens,
                                        int batch_size, int max_block_num,
-                                       Backend *backend) {
+                                       KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 

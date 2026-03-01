@@ -734,6 +734,7 @@ class CPUInfer:
             CPUInfer.cur_backend_thread_num = thread_num
             del CPUInfer.cpuinfer
             CPUInfer.cpuinfer = cpuinfer_ext.CPUInfer(thread_num)
+            print(f"---------    >>>>>>>>>Initialized CPUInfer with {thread_num} threads.")
 
     def submit(self, task):
         CPUInfer.cpuinfer.submit(task)
@@ -746,6 +747,9 @@ class CPUInfer:
 
     def sync_with_cuda_stream(self, current_cuda_stream):
         CPUInfer.cpuinfer.sync_with_cuda_stream(current_cuda_stream)
+    
+    def submit_prefetch(self, task):
+        CPUInfer.cpuinfer.submit_prefetch(task)
 
 
         

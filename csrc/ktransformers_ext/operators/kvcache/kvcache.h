@@ -322,54 +322,54 @@ class KVCache {
               int layer_idx, int generate_token_idx, int q_len, int batch_size,
               int max_block_num, int *block_table, int *cache_seqlens,
               int pick_block_num, int init_block_num, int local_block_num,
-              Backend *backend);
+              KBackend *backend);
 
     void update_kvcache_one_block_fp16(const ggml_fp16_t *k_in,
                                        const ggml_fp16_t *v_in, int layer_id,
-                                       int block_idx, Backend *backend);
+                                       int block_idx, KBackend *backend);
 
     void get_kvcache_one_block_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in,
                                     int layer_id, int block_idx,
-                                    Backend *backend);
+                                    KBackend *backend);
 
     void update_importance_one_block(const ggml_fp16_t *importance,
                                      int layer_id, int block_idx,
-                                     Backend *backend);
+                                     KBackend *backend);
     void get_importance_one_block(ggml_fp16_t *importance, int layer_id,
-                                  int block_idx, Backend *backend);
+                                  int block_idx, KBackend *backend);
 
     void get_anchor_one_block(ggml_fp16_t *anchor, int layer_id, int block_idx,
-                              Backend *backend);
+                              KBackend *backend);
 
     void update_anchor_one_block(const ggml_fp16_t *anchor, int layer_id,
-                                 int block_idx, Backend *backend);
+                                 int block_idx, KBackend *backend);
 
     void calc_anchor_all_layers(int *block_table, int *cache_seqlens,
                                 int batch_size, int max_block_num,
-                                Backend *backend);
+                                KBackend *backend);
 
-    void load_kvcache(std::string tensor_file_path, Backend *backend);
+    void load_kvcache(std::string tensor_file_path, KBackend *backend);
     void dump_kvcache(int *block_table, int cache_total_len,
-                      std::string tensor_file_path, Backend *backend);
+                      std::string tensor_file_path, KBackend *backend);
 
     void get_and_update_kvcache_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in,
                                      int layer_id, int *block_table,
                                      int batch_size, int max_block_num,
                                      int *cache_seqlens, int q_len,
-                                     Backend *backend);
+                                     KBackend *backend);
 
     void get_kvcache_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in, int layer_id,
                           int *block_table, int batch_size, int max_block_num,
-                          int *cache_seqlens, Backend *backend);
+                          int *cache_seqlens, KBackend *backend);
 
     void update_kvcache_fp16(const ggml_fp16_t *k_in, const ggml_fp16_t *v_in,
                              int layer_id, int *block_table, int batch_size,
                              int max_block_num, int *cache_seqlens, int q_len,
-                             Backend *backend);
+                             KBackend *backend);
 
     void update_importance(const ggml_fp16_t *importance, int layer_id,
                            int *block_table, int batch_size, int max_block_num,
-                           int *offset, int width, Backend *backend);
+                           int *offset, int width, KBackend *backend);
 
     void attn_with_kvcache(const ggml_fp16_t *q_in, const ggml_fp16_t *k_in,
                            const ggml_fp16_t *v_in, ggml_fp16_t *output,
@@ -377,15 +377,15 @@ class KVCache {
                            int generate_token_idx, int q_len, int batch_size,
                            int max_block_num, int *block_table,
                            int *cache_seqlens, int topk, int local,
-                           Backend *backend);
+                           KBackend *backend);
 
     void clear_importance_all_layers(int *block_table, int *cache_seqlens,
                                      int batch_size, int max_block_num,
-                                     Backend *backend);
+                                     KBackend *backend);
 
     void clear_kvcache_all_layers(int *block_table, int *cache_seqlens,
                                   int batch_size, int max_block_num,
-                                  Backend *backend);
+                                  KBackend *backend);
 
     void get_sincos(ggml_fp16_t *sin, ggml_fp16_t *cos, int seqlen);
 
@@ -394,10 +394,10 @@ class KVCache {
                            int batch_size, int max_block_num, int *block_table,
                            int *cache_seqlens, int *block_table_origin,
                            int *cache_seqlens_origin, int max_block_num_origin,
-                           int topk, int local, Backend *backend);
+                           int topk, int local, KBackend *backend);
 
     void get_all_kvcache_one_layer(int layer_id, ggml_fp16_t *k_in,
-                                   ggml_fp16_t *v_in, Backend *backend);
+                                   ggml_fp16_t *v_in, KBackend *backend);
 
   private:
     // Persistent data
@@ -551,22 +551,22 @@ class KVCache {
                                   int q_len, int generate_token_idx,
                                   int batch_size, int layer_idx,
                                   int *cache_seqlens, int &max_block_num,
-                                  Backend *backend);
+                                  KBackend *backend);
     void retrieval_kvcache_kvhead_(const uint16_t *q_in_data,
                                    int init_block_num, int local_block_num,
                                    int pick_block_num, int q_len,
                                    int generate_token_idx, int batch_size,
                                    int layer_idx, int *cache_seqlens,
-                                   int &max_block_num, Backend *backend);
+                                   int &max_block_num, KBackend *backend);
 
     void calculate_block_similarity_layer_(
         const uint16_t *q_in_data, int batch_size, int layer_idx, int q_len,
         int max_block_num, int *cache_seqlens, int init_block_num,
-        int local_block_num, int pick_block_num, Backend *backend);
+        int local_block_num, int pick_block_num, KBackend *backend);
     void calculate_block_similarity_kvhead_(
         const uint16_t *q_in_data, int batch_size, int layer_idx, int q_len,
         int max_block_num, int *cache_seqlens, int init_block_num,
-        int local_block_num, int pick_block_num, Backend *backend);
+        int local_block_num, int pick_block_num, KBackend *backend);
 
     void select_block_layer_(int batch_size, int layer_idx, int max_block_num,
                              int init_block_num, int local_block_num,
@@ -578,16 +578,16 @@ class KVCache {
     void calculate_sparsity_layer_(const uint16_t *q_in_data,
                                    float *attn_sparsity, int batch_size,
                                    int max_block_num, int *block_table,
-                                   int *cache_seqlens, Backend *backend);
+                                   int *cache_seqlens, KBackend *backend);
     void calculate_sparsity_kvhead_(const uint16_t *q_in_data,
                                     float *attn_sparsity, int batch_size,
                                     int max_block_num, int *block_table,
-                                    int *cache_seqlens, Backend *backend);
+                                    int *cache_seqlens, KBackend *backend);
 
     void attention_kvhead_(const uint16_t *q_in_data, ggml_fp16_t *output,
-                           float *attn_lse, int batch_size, Backend *backend);
+                           float *attn_lse, int batch_size, KBackend *backend);
     void attention_layer_(const uint16_t *q_in_data, ggml_fp16_t *output,
-                          float *attn_lse, int batch_size, Backend *backend);
+                          float *attn_lse, int batch_size, KBackend *backend);
 
     /**
      * @brief Computes attention with KV cache for one block.

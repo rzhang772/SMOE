@@ -24,7 +24,7 @@ Linear::~Linear() {
     shared_mem_buffer.dealloc(this);
 }
 
-void Linear::warm_up(Backend *backend) {
+void Linear::warm_up(KBackend *backend) {
     std::vector<float> input_fp32(config_.input_size);
     std::vector<uint8_t> input(config_.input_size *
                                ggml_type_size(config_.hidden_type) /
@@ -39,7 +39,7 @@ void Linear::warm_up(Backend *backend) {
     forward_many(1, input.data(), output.data(), backend);
 }
 
-void Linear::forward_many(int qlen, const void* input, void* output, Backend* backend) {
+void Linear::forward_many(int qlen, const void* input, void* output, KBackend* backend) {
     const void* proj_input_ptr;
     if (config_.hidden_type == ggml_internal_get_type_traits(config_.proj_type).vec_dot_type) {
         proj_input_ptr = input;
@@ -67,7 +67,7 @@ void Linear::forward_many(int qlen, const void* input, void* output, Backend* ba
     }
 }
 
-void Linear::forward(int qlen, const void* input, void* output, Backend* backend) {
+void Linear::forward(int qlen, const void* input, void* output, KBackend* backend) {
     if (qlen <= 0) {
         return;
     }

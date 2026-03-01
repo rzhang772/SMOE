@@ -7,6 +7,7 @@ LastEditTime: 2024-11-13 07:50:51
 import math
 from dataclasses import dataclass
 import torch
+import nvtx
 import torch.nn as nn
 from torch.nn import functional as F
 import math
@@ -72,6 +73,7 @@ class KDeepseekV3ForCausalLM(DeepseekV3PreTrainedModel):
         return features
 
 
+    @nvtx.annotate("KDeepseekV3ForCausalLM.forward")
     def forward(
         self,
         batch: ForwardBatchInput | None = None,

@@ -275,6 +275,11 @@ add_compile_options("$<$<COMPILE_LANGUAGE:C>:${ARCH_FLAGS}>")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../third_party/pybind11 ${CMAKE_CURRENT_BINARY_DIR}/third_party/pybind11)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../third_party/llama.cpp ${CMAKE_CURRENT_BINARY_DIR}/third_party/llama.cpp)
 
+# 2. 找到 PyTorch 并包含头文件
+# set(CMAKE_PREFIX_PATH "/opt/conda/lib/python3.11/site-packages/torch/share/cmake" CACHE PATH "PyTorch path")
+# find_package(Torch REQUIRED)
+# include_directories(${TORCH_INCLUDE_DIRS})
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../third_party)
 if (WIN32)
     include_directories("$ENV{CUDA_PATH}/include")
@@ -335,6 +340,10 @@ endif()
 
 set(ALL_SOURCES ${SOURCE_DIR1} ${SOURCE_DIR2} ${SOURCE_DIR3} ${SOURCE_DIR4} ${SOURCE_DIR5} ${SOURCE_DIR6})
 
+# list(APPEND ALL_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/operators/llamafile/moe.cu")
+
+
+
 file(GLOB_RECURSE FMT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/*.hpp" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
 
 add_custom_target(
@@ -354,6 +363,13 @@ message(STATUS "ARCH_FLAGS: ${ARCH_FLAGS}")
 pybind11_add_module(${PROJECT_NAME} MODULE ${ALL_SOURCES})
 target_link_libraries(${PROJECT_NAME} PRIVATE llama)
 
+ set_target_properties(${PROJECT_NAME} PROPERTIES
+    CUDA_ARCHITECTURES "89"
+ )
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3 -Xcompiler -fPIC>
+)
 
 if(WIN32)
     target_link_libraries(${PROJECT_NAME} PRIVATE "$ENV{CUDA_PATH}/lib/x64/cudart.lib")#CUDA::cudart

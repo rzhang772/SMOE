@@ -30,10 +30,10 @@ struct ThreadState {
     int end;
 };
 
-class Backend {
+class KBackend {
   public:
-    Backend(int);
-    ~Backend();
+    KBackend(int);
+    ~KBackend();
     int get_thread_num();
     void do_work_stealing_job(int, std::function<void(int)>,
                               std::function<void(int)>,

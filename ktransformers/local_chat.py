@@ -4,12 +4,13 @@ Author       : Boxin Zhang, Azure-Tang
 Version      : 0.1.0
 Copyright (c) 2024 by KVCache.AI, All Rights Reserved. 
 """
-
 import os
+import time
 os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 import platform
 import sys
 import subprocess
+import signal
 
 project_dir = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, project_dir)
@@ -18,14 +19,15 @@ import torch.profiler
 import logging
 from torch.profiler import profile, ProfilerActivity, tensorboard_trace_handler
 from transformers import (
-    AutoTokenizer,
-    AutoConfig,
-    AutoModelForCausalLM,
-    GenerationConfig,
-    TextStreamer,
+    AutoTokenizer, # pyright: ignore[reportPrivateImportUsage]
+    AutoConfig, # type: ignore
+    AutoModelForCausalLM, # type: ignore
+    GenerationConfig, # type: ignore
+    TextStreamer, # type: ignore
 )
 import json
 import fire
+import threading
 from ktransformers.optimize.optimize import optimize_and_load_gguf
 from ktransformers.models.modeling_deepseek import DeepseekV2ForCausalLM
 from ktransformers.models.modeling_qwen2_moe import Qwen2MoeForCausalLM
@@ -36,7 +38,6 @@ from ktransformers.util.utils import prefill_and_generate, get_compute_capabilit
 from ktransformers.server.config.config import Config
 from ktransformers.operators.flashinfer_wrapper import flashinfer_enabled
 from ktransformers.util.vendors import device_manager, get_device, to_device, GPUVendor
-import nvtx
 
 import random
 import numpy as np
@@ -47,6 +48,7 @@ np.random.seed(seed)
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
+
 custom_models = {
     "DeepseekV2ForCausalLM": DeepseekV2ForCausalLM,
     "DeepseekV3ForCausalLM": DeepseekV3ForCausalLM,
@@ -69,10 +71,16 @@ default_optimize_rules = {
 
 def local_chat(
     model_path: str | None = None,
-    optimize_config_path: str = None,
+    optimize_config_path: str = None, # type: ignore
     gguf_path: str | None = None,
     max_new_tokens: int = 1000,
     cpu_infer: int = Config().cpu_infer,
+    prefetch_num: int = Config().prefetch_num,
+    prefetch_method: int = Config().prefetch_method, # 0: token prefetch, 1: layer prefetch
+    prefetch_strategy: int = Config().prefetch_strategy, # 0: 固定传输数量， 1: 动态传输数量
+    gpu_compute_max_num: int = Config().gpu_compute_max_num,
+    prefetch_start_layer: int = Config().prefetch_start_layer,
+    baseline: int = Config().baseline,  # 1:原始KT， 0:修改后的KT
     use_cuda_graph: bool = True,
     prompt_file : str | None = None,
     mode: str = "normal",
@@ -83,7 +91,14 @@ def local_chat(
 
     torch.set_grad_enabled(False)
 
-    Config().cpu_infer = cpu_infer
+    Config().cpu_infer = cpu_infer # not work, because cpuinfer is build in the import stage, must set before import
+    Config().prefetch_num = prefetch_num
+    Config().prefetch_method = prefetch_method
+    Config().prefetch_strategy = prefetch_strategy
+    Config().gpu_compute_max_num = gpu_compute_max_num
+    Config().prefetch_start_layer = prefetch_start_layer
+    Config().baseline = baseline
+    # print(f"cpu_infer: {Config().cpu_infer}")
     if torch.xpu.is_available():
         use_cuda_graph = False
 
@@ -128,12 +143,11 @@ def local_chat(
         gguf_path = input(
             "please input the path of your gguf file(gguf file in the dir containing input gguf file must all belong to current model):"
         )
-
-    
+    # print(model)
     optimize_and_load_gguf(model, optimize_config_path, gguf_path, config, default_device=device)
     
     try:
-        model.generation_config = GenerationConfig.from_pretrained(model_path)
+        model.generation_config = GenerationConfig.from_pretrained(model_path) # type: ignore
     except Exception as e:
         print(f"generation config can't auto create, make default. Message: {e}")
         gen_config = GenerationConfig(
@@ -155,7 +169,7 @@ def local_chat(
     #     os.system("clear")
 
 
-    def list_prompt_files_by_dataset(base_dir="./test_prompt"):
+    def list_prompt_files_by_dataset(base_dir="./moe_analysis/test2"):
         dataset_files = {}
 
         for dataset_name in os.listdir(base_dir):
@@ -178,6 +192,8 @@ def local_chat(
 
 
     for dataset, files in files_by_dataset.items():
+        # if dataset not in ["xsum"]:
+        #     continue
         print(f"\n📂 Dataset: {dataset} ({len(files)} files)")
         for path in files:
             print(f"input:  - {path}")
@@ -190,6 +206,7 @@ def local_chat(
             prompt_name = None
 
             print(f"output: - {prompt_name}")
+            print(f"Main thread: {threading.current_thread().name}, id: {threading.get_ident()}")
 
             content = open(path, "r").read()
             messages = [{"role": "user", "content": content}]
@@ -203,17 +220,17 @@ def local_chat(
                     use_flashinfer_mla = True, num_heads = config.num_attention_heads, head_dim_ckv = config.kv_lora_rank, head_dim_kpe = config.qk_rope_head_dim, q_head_dim = config.qk_rope_head_dim + config.qk_nope_head_dim, prompt_name=None
                 )
             else:
-                monitor_process = subprocess.Popen(
-                    ["python", "./expirments/sys_monitor.py"],
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
-                    )
-                print(f"Started system monitor process with PID: {monitor_process.pid}")
-                
+                # 启动资源监控进程
+                # monitor_process = subprocess.Popen(
+                #     ["python", "./expirments/sys_monitor.py"],
+                #     stdout=subprocess.DEVNULL,
+                #     stderr=subprocess.DEVNULL
+                #     )
+                # print(f"Started system monitor process with PID: {monitor_process.pid}")
                 generated = prefill_and_generate(
-                    model, tokenizer, input_tensor.to(device), max_new_tokens, use_cuda_graph, mode = mode, force_think = force_think, chunk_size = chunk_size, dataset = dataset,file_name = file_name,
-                    # prompt_name=prompt_name
+                    model, tokenizer, input_tensor.to(device), max_new_tokens, use_cuda_graph, mode = mode, force_think = force_think, chunk_size = chunk_size, prompt_name=prompt_name, dataset_name=dataset, file_name=file_name
                 )
+            time.sleep(1)  # 等待文件写入完成
 
 
             break

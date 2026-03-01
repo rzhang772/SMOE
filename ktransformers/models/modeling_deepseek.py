@@ -28,6 +28,7 @@ Version      : 0.1.0
 """ PyTorch DeepSeek model."""
 import math
 import warnings
+import nvtx
 from typing import List, Optional, Tuple, Union
 
 import torch
@@ -378,6 +379,7 @@ class DeepseekV2MLP(nn.Module):
         self.down_proj = nn.Linear(self.intermediate_size, self.hidden_size, bias=False)
         self.act_fn = ACT2FN[config.hidden_act]
 
+    @nvtx.annotate("DeepseekV2MLP.forward")
     def forward(self, x):
         act = self.act_fn(self.gate_proj(x)) * self.up_proj(x)
         down_proj = self.down_proj(act)

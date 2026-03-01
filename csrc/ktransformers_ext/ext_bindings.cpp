@@ -541,6 +541,7 @@ class MOEBindings {
             int k;
             const uint64_t *expert_ids;
             const float *weights;
+            const uint64_t *in_gpu_mask; // Use bool for in_gpu_mask
             const void *input;
             void *output;
             int *batch_size_tensor;
@@ -549,22 +550,80 @@ class MOEBindings {
             Args *args_ = (Args *)args;
             args_->cpuinfer->enqueue(
                 &MOE::forward, args_->moe, args_->qlen, args_->k,
-                args_->expert_ids, args_->weights, args_->input, args_->output, args_->batch_size_tensor);
+                args_->expert_ids, args_->weights, 
+                args_->in_gpu_mask, 
+                args_->input, args_->output, args_->batch_size_tensor);
         }
         static std::pair<intptr_t, intptr_t>
         cpuinfer_interface(MOE &moe, int qlen, int k, intptr_t expert_ids,
-                           intptr_t weights, intptr_t input, intptr_t output, intptr_t batch_size_tensor) {
+                           intptr_t weights, 
+                           intptr_t in_gpu_mask, 
+                           intptr_t input, intptr_t output, intptr_t batch_size_tensor) {
             Args *args = new Args{nullptr,
                                   &moe,
                                   qlen,
                                   k,
                                   (const uint64_t *)expert_ids,
                                   (const float *)weights,
+                                  (const uint64_t *)in_gpu_mask,
                                   (const void *)input,
                                   (void *)output,
                                   (int *)batch_size_tensor};
             return std::make_pair((intptr_t)&inner, (intptr_t)args);
         }
+    };
+    class PrefetchBindings{
+        public:
+        struct Args {
+            CPUInfer *cpuinfer;
+            MOE *moe;
+            int update_policy;
+            int prefetch_num;
+            int cache_num;
+            int pred_num;
+            const uint64_t* expert_frequency; // expert频次统计
+            const uint64_t* pred_expert;
+            uint64_t* cached_expert;
+            uint64_t* up_slots;    // len = cache_num
+            uint64_t* gate_slots;  // len = cache_num
+            uint64_t* down_slots;  // len = cache_num
+            int* cache_ready;
+            uint64_t stream_ptr;
+        };
+        static void inner(void *args) {
+            // printf("in PrefetchBindings::inner!!!!!!!\n");
+            Args *args_ = (Args *)args;
+            args_->cpuinfer->enqueue_prefetch(
+                &MOE::prefetch, args_->moe, args_->update_policy, args_->prefetch_num, args_->cache_num, args_->pred_num,
+                args_->expert_frequency, args_->pred_expert,
+                args_->cached_expert, args_->up_slots, args_->gate_slots,
+                args_->down_slots, args_->cache_ready, args_->stream_ptr);
+        }
+        static std::pair<intptr_t, intptr_t>
+        cpuinfer_interface(MOE &moe, int update_policy, int prefetch_num, int cache_num, int pred_num,
+                           intptr_t expert_frequency, intptr_t pred_expert, intptr_t cached_expert,
+                           intptr_t up_slots,    // len = cache_num
+                           intptr_t gate_slots,  // len = cache_num
+                           intptr_t down_slots,  // len = cache_num
+                           intptr_t cache_ready,
+                           intptr_t stream_ptr) {
+            Args *args = new Args{nullptr,
+                                  &moe,
+                                  update_policy,
+                                  prefetch_num,
+                                  cache_num,
+                                  pred_num,
+                                  (const uint64_t *)expert_frequency,
+                                  (const uint64_t *)pred_expert,
+                                  (uint64_t *)cached_expert,
+                                  (uint64_t*) up_slots,
+                                  (uint64_t*) gate_slots,
+                                  (uint64_t*) down_slots,
+                                  (int *)cache_ready,
+                                  stream_ptr};
+            return std::make_pair((intptr_t)&inner, (intptr_t)args);
+        }
+
     };
 };
 
@@ -646,7 +705,8 @@ PYBIND11_MODULE(cpuinfer_ext, m) {
         .def("submit", &CPUInfer::submit)
         .def("submit_with_cuda_stream", &CPUInfer::submit_with_cuda_stream)
         .def("sync", &CPUInfer::sync)
-        .def("sync_with_cuda_stream", &CPUInfer::sync_with_cuda_stream);
+        .def("sync_with_cuda_stream", &CPUInfer::sync_with_cuda_stream)
+        .def("submit_prefetch", &CPUInfer::submit_prefetch);
 
     auto linear_module = m.def_submodule("linear");
     py::class_<LinearConfig>(linear_module, "LinearConfig")
@@ -696,7 +756,8 @@ PYBIND11_MODULE(cpuinfer_ext, m) {
     py::class_<MOE>(moe_module, "MOE")
         .def(py::init<MOEConfig>())
         .def("warm_up", &MOEBindings::WarmUpBindinds::cpuinfer_interface)
-        .def("forward", &MOEBindings::ForwardBindings::cpuinfer_interface);
+        .def("forward", &MOEBindings::ForwardBindings::cpuinfer_interface)
+        .def("prefetch", &MOEBindings::PrefetchBindings::cpuinfer_interface);
 
 
     #if defined(__x86_64__) && defined(__HAS_AVX512F__) && defined(__HAS_AMX__)

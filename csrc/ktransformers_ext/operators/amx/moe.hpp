@@ -220,7 +220,7 @@ public:
 
   ~AMX_MOE() { shared_mem_buffer.dealloc(this); }
 
-  void load_weights(Backend *backend) {
+  void load_weights(KBackend *backend) {
     int nth = T::recommended_nth(config_.intermediate_size);
     backend->do_work_stealing_job(
         nth * config_.expert_num, nullptr,
@@ -268,10 +268,10 @@ public:
         nullptr);
   }
 
-  void warm_up(Backend *backend) {}
+  void warm_up(KBackend *backend) {}
 
   void forward(int qlen, int k, const uint64_t *expert_ids, const float *weights, const void *input, void *output,
-               int *batch_size_tensor, Backend *backend) {
+               int *batch_size_tensor, KBackend *backend) {
     qlen = batch_size_tensor[0];
     bool use_amx = (qlen > 4 * config_.expert_num / config_.routed_expert_num);
     int activated_expert = 0;
@@ -322,10 +322,10 @@ public:
           int ith = task_id % nth;
 #ifdef USE_NUMA
           amx::mat_mul(m_local_num_[expert_idx], config_.intermediate_size, config_.hidden_size,
-                       gate_up_ba_[expert_idx], gate_bb_numa_[Backend::numa_node][expert_idx], gate_bc_[expert_idx],
+                       gate_up_ba_[expert_idx], gate_bb_numa_[KBackend::numa_node][expert_idx], gate_bc_[expert_idx],
                        ith, nth, use_amx);
           amx::mat_mul(m_local_num_[expert_idx], config_.intermediate_size, config_.hidden_size,
-                       gate_up_ba_[expert_idx], up_bb_numa_[Backend::numa_node][expert_idx], up_bc_[expert_idx], ith,
+                       gate_up_ba_[expert_idx], up_bb_numa_[KBackend::numa_node][expert_idx], up_bc_[expert_idx], ith,
                        nth, use_amx);
 #else
           amx::mat_mul(m_local_num_[expert_idx], config_.intermediate_size, config_.hidden_size,
@@ -365,7 +365,7 @@ public:
           int ith = task_id % nth;
 #ifdef USE_NUMA
           amx::mat_mul(m_local_num_[expert_idx], config_.hidden_size, config_.intermediate_size, down_ba_[expert_idx],
-                       down_bb_numa_[Backend::numa_node][expert_idx], down_bc_[expert_idx], ith, nth, use_amx);
+                       down_bb_numa_[KBackend::numa_node][expert_idx], down_bc_[expert_idx], ith, nth, use_amx);
 #else
           amx::mat_mul(m_local_num_[expert_idx], config_.hidden_size, config_.intermediate_size, down_ba_[expert_idx],
                        down_bb_[expert_idx], down_bc_[expert_idx], ith, nth, use_amx);

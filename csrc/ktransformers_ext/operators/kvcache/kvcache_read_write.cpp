@@ -13,7 +13,7 @@
 #include <chrono>
 
 void KVCache::get_anchor_one_block(ggml_fp16_t *anchor, int layer_id,
-                                   int block_idx, Backend *backend) {
+                                   int block_idx, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -30,7 +30,7 @@ void KVCache::get_anchor_one_block(ggml_fp16_t *anchor, int layer_id,
 }
 
 void KVCache::update_anchor_one_block(const ggml_fp16_t *anchor, int layer_id,
-                                      int block_idx, Backend *backend) {
+                                      int block_idx, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -58,7 +58,7 @@ void KVCache::update_anchor_one_block(const ggml_fp16_t *anchor, int layer_id,
 
 void KVCache::update_importance_one_block(const ggml_fp16_t *importance,
                                           int layer_id, int block_idx,
-                                          Backend *backend) {
+                                          KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -85,7 +85,7 @@ void KVCache::update_importance_one_block(const ggml_fp16_t *importance,
 }
 
 void KVCache::get_importance_one_block(ggml_fp16_t *importance, int layer_id,
-                                       int block_idx, Backend *backend) {
+                                       int block_idx, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -115,7 +115,7 @@ void KVCache::get_importance_one_block(ggml_fp16_t *importance, int layer_id,
 void KVCache::update_kvcache_one_block_fp16(const ggml_fp16_t *k_in,
                                             const ggml_fp16_t *v_in,
                                             int layer_id, int block_idx,
-                                            Backend *backend) {
+                                            KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -202,7 +202,7 @@ void KVCache::update_kvcache_one_block_fp16(const ggml_fp16_t *k_in,
 
 void KVCache::get_kvcache_one_block_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in,
                                          int layer_id, int block_idx,
-                                         Backend *backend) {
+                                         KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -273,7 +273,7 @@ void KVCache::get_and_update_kvcache_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in,
                                           int layer_id, int *block_table,
                                           int batch_size, int max_block_num,
                                           int *cache_seqlens, int q_len,
-                                          Backend *backend) {
+                                          KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -598,7 +598,7 @@ void KVCache::get_and_update_kvcache_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in,
 void KVCache::update_importance(const ggml_fp16_t *importance, int layer_id,
                                 int *block_table, int batch_size,
                                 int max_block_num, int *offset, int width,
-                                Backend *backend) {
+                                KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -645,7 +645,7 @@ void KVCache::update_importance(const ggml_fp16_t *importance, int layer_id,
 void KVCache::get_kvcache_fp16(ggml_fp16_t *k_in, ggml_fp16_t *v_in,
                                int layer_id, int *block_table, int batch_size,
                                int max_block_num, int *cache_seqlens,
-                               Backend *backend) {
+                               KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -815,7 +815,7 @@ void KVCache::update_kvcache_fp16(const ggml_fp16_t *k_in,
                                   const ggml_fp16_t *v_in, int layer_id,
                                   int *block_table, int batch_size,
                                   int max_block_num, int *cache_seqlens,
-                                  int q_len, Backend *backend) {
+                                  int q_len, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -934,7 +934,7 @@ void KVCache::update_kvcache_fp16(const ggml_fp16_t *k_in,
 }
 
 void KVCache::get_all_kvcache_one_layer(int layer_id, ggml_fp16_t *k_in,
-                                        ggml_fp16_t *v_in, Backend *backend) {
+                                        ggml_fp16_t *v_in, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 

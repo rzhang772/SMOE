@@ -346,6 +346,14 @@ def dequantize_q4_k_gpu(data, device:str ="cuda", target_dtype = torch.get_defau
     c_pointer = ctypes.addressof(ctypes.cast(data.ctypes.data, ctypes.POINTER(ctypes.c_int8)).contents)
     return KTransformersOps.dequantize_q4_k(c_pointer, data.size, block_size, ele_per_blk, device, target_dtype)
 
+def dequantize_q4_k_gpu_ongpu(data, device:str ="cuda", target_dtype = torch.get_default_dtype()):
+    block_size = GGML_BLOCK_SIZES["Q4_K"]
+    ele_per_blk = GGML_ELEMENTS_PER_BLOCK["Q4_K"]
+    num_bytes = data.numel() * data.element_size()
+    device = torch.device(device)
+    data = data.to(torch.int8).contiguous()
+    return KTransformersOps.dequantize_q4_k_ongpu(data, num_bytes, block_size, ele_per_blk, device, target_dtype)
+
 def dequantize_q5_k(data):
     # C implementation
     # https://github.com/ggerganov/ggml/blob/fca1caafea7de9fbd7efc733b9818f9cf2da3050/src/ggml-quants.c#L2129
@@ -470,6 +478,15 @@ def dequantize_q6_k_gpu(data: np.ndarray, device:str = "cuda", target_dtype = to
     c_pointer = ctypes.addressof(ctypes.cast(data.ctypes.data, ctypes.POINTER(ctypes.c_int8)).contents)
     return KTransformersOps.dequantize_q6_k(c_pointer, data.size, block_size, ele_per_blk, device, target_dtype)
 
+def dequantize_q6_k_gpu_ongpu(data, device:str ="cuda", target_dtype = torch.get_default_dtype()):
+    block_size = GGML_BLOCK_SIZES["Q6_K"]
+    ele_per_blk = GGML_ELEMENTS_PER_BLOCK["Q6_K"]
+    num_bytes = data.numel() * data.element_size()
+    device = torch.device(device)
+    data = data.to(torch.int8).contiguous()
+    return KTransformersOps.dequantize_q6_k_ongpu(data, num_bytes, block_size, ele_per_blk, device, target_dtype)
+
+
 kvalues_iq4nl = np.array([-127, -104, -83, -65, -49, -35, -22, -10, 1, 13, 25, 38, 53, 69, 89, 113], dtype=np.int8)
 
 def dequantize_iq4_xs(data):
@@ -510,6 +527,14 @@ def dequantize_iq4_xs_gpu(data: np.ndarray, device:str = "cuda", target_dtype = 
     data = np.frombuffer(data, dtype=data.dtype)
     c_pointer = ctypes.addressof(ctypes.cast(data.ctypes.data, ctypes.POINTER(ctypes.c_int8)).contents)
     return KTransformersOps.dequantize_iq4_xs(c_pointer, data.size, block_size, ele_per_blk, device, target_dtype)
+
+def dequantize_iq4_xs_gpu_ongpu(data, device:str ="cuda", target_dtype = torch.get_default_dtype()):
+    block_size = GGML_BLOCK_SIZES["IQ4_XS"]
+    ele_per_blk = GGML_ELEMENTS_PER_BLOCK["IQ4_XS"]
+    num_bytes = data.numel() * data.element_size()
+    device = torch.device(device)
+    data = data.to(torch.int8).contiguous()
+    return KTransformersOps.dequantize_iq4_xs_ongpu(data, num_bytes, block_size, ele_per_blk, device, target_dtype)
 
 def dequantize_q4_0(data):
     # C implementation
@@ -629,6 +654,12 @@ GGML_DEQUANTIZE_GPU = {
     "Q5_K": dequantize_q5_k_gpu,
     "Q6_K": dequantize_q6_k_gpu,
     "IQ4_XS": dequantize_iq4_xs_gpu,
+}
+
+GGML_DEQUANTIZE_GPU_ONGPU = {
+    "Q4_K": dequantize_q4_k_gpu_ongpu,
+    "Q6_K": dequantize_q6_k_gpu_ongpu,
+    "IQ4_XS": dequantize_iq4_xs_gpu_ongpu,
 }
 
 

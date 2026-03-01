@@ -8,9 +8,11 @@
  * @Copyright (c) 2024 by KVCache.AI, All Rights Reserved.
  **/
 #include "task_queue.h"
+#include <iostream>
+#include <thread>
 
 TaskQueue::TaskQueue() {
-    worker = std::thread(&TaskQueue::processTasks, this);
+    worker = std::thread(&TaskQueue::processTasks, this);// 一个工作线程负责按顺序执行队列中的任务即invoke(moe.forward())
     sync_flag.store(true, std::memory_order_seq_cst);
     exit_flag.store(false, std::memory_order_seq_cst);
 }
@@ -28,6 +30,7 @@ TaskQueue::~TaskQueue() {
 }
 
 void TaskQueue::enqueue(std::function<void()> task) {
+    // printf("in TaskQueue::enqueue!!!!!!!\n");
     {
         mutex.lock();
         tasks.push(task);
@@ -55,7 +58,8 @@ void TaskQueue::processTasks() {
             tasks.pop();
             mutex.unlock();
         }
-        task();
+        // std::cout << "worker 线程 ID: " << worker.get_id() << std::endl;
+        task();// moe.forward()
         {
             mutex.lock();
             if (tasks.empty()) {

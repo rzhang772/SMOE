@@ -19,6 +19,7 @@ import torch.nn.functional as F
 import torch.utils.checkpoint
 from torch import nn
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
+from ktransformers.models.modeling_deepseek_v3 import DeepseekV3MoE
 from ktransformers.operators.dynamic_attention import DynamicScaledDotProductAttention
 from ktransformers.server.config.config import Config
 import os
@@ -571,6 +572,8 @@ class KDeepseekV2Model(BaseInjectedModule):
         prompt_name: Optional[str] = None,
         mode: Optional[str] = None,
         token_idx: Optional[int] = None,
+        hit_rate: Optional[list[float]] = None,
+        timebreak: Optional[dict] = None,
     ) -> Union[Tuple, BaseModelOutputWithPast]:
         if per_layer_prefill_intput_threshold is None:
             per_layer_prefill_intput_threshold = self.per_layer_prefill_intput_threshold
@@ -739,7 +742,13 @@ class KDeepseekV2Model(BaseInjectedModule):
                 t4 = time.time()
                 # with open("log.txt", "a") as f:
                 #     f.write(f"@@@@@@@@@@@@@@@@@layer {i}@@@@@@@@@@@@@@@@@@@@ \n")
+                if i > 2 and i+Config().skip_layer < len(self.layers):
+                    next_layer = self.layers[i+Config().skip_layer]
+                else:
+                    next_layer = None
+                    # print(f"layer {i}, next_layer is None")
                 layer_outputs = decoder_layer(
+                    next_layer,
                     hidden_states,
                     attention_mask=causal_mask,
                     position_ids=position_ids,
@@ -751,6 +760,8 @@ class KDeepseekV2Model(BaseInjectedModule):
                     prompt_name = prompt_name,
                     mode = mode,
                     token_idx = token_idx,
+                    hit_rate = hit_rate,
+                    timebreak = timebreak,
                 )
                 t5 = time.time()
                 if per_layer_prefill_flag:

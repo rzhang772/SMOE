@@ -16,7 +16,6 @@ from ktransformers.util.custom_loader import GGUFLoader, ModelLoaderFactory
 from ktransformers.util.utils import set_module, load_weights
 import itertools
 import copy
-import nvtx
 
 def inject(module, local_optimization_dict, model_config:AutoConfig ,gguf_loader:GGUFLoader, prefix=''):
     for name, child in module._modules.items():
@@ -27,15 +26,15 @@ def inject(module, local_optimization_dict, model_config:AutoConfig ,gguf_loader
                 if inject_module_meta["class"] != "default":
                     import_path = inject_module_meta["class"].split(".")
                     import_module_name = ".".join(import_path[:-1])
-                    gguf_loader.tensor_device_map[inject_module_meta["key"]] = inject_module_meta["kwargs"] if "kwargs" in inject_module_meta else dict()
+                    gguf_loader.tensor_device_map[inject_module_meta["key"]] = inject_module_meta["kwargs"] if "kwargs" in inject_module_meta else dict() # 为被替换的模块的gguf指定加载设备，根据yaml配置
                     import_class_name = import_path[-1]
-                    module_cls=getattr(__import__(import_module_name, fromlist=[""]), import_class_name)
+                    module_cls=getattr(__import__(import_module_name, fromlist=[""]), import_class_name) # import对应模块
                     # print(f"Injecting {child_prefix} as", import_module_name, ".", import_class_name)
-                    inject_module=module_cls(key = inject_module_meta["key"], gguf_loader = gguf_loader, config = model_config, orig_module=child, **inject_module_meta["kwargs"])
+                    inject_module=module_cls(key = inject_module_meta["key"], gguf_loader = gguf_loader, config = model_config, orig_module=child, **inject_module_meta["kwargs"]) # 实例化对应模块
                     set_module(module, name, inject_module)
                 elif inject_module_meta["class"] == "default":
                     # print(f"Injecting {child_prefix} as default")
-                    gguf_loader.tensor_device_map[inject_module_meta["key"]] = inject_module_meta["kwargs"] if "kwargs" in inject_module_meta else dict()
+                    gguf_loader.tensor_device_map[inject_module_meta["key"]] = inject_module_meta["kwargs"] if "kwargs" in inject_module_meta else dict() # 为没有被替换的模块指定加载设备，根据yaml配置
                 else:
                     raise Exception("inject_module_meta[\"class\"] must be \"default\" or a class path")
                 child_prefix += "."
@@ -114,7 +113,7 @@ def translate_model_config(model_config: PretrainedConfig):
     
     return model_config
 
-@nvtx.annotate("optimize_and_load_gguf")
+
 def optimize_and_load_gguf(module: nn.Module, rule_file: str, gguf_path: str, model_config: PretrainedConfig, default_device: str = "cuda:0"):
     with open(rule_file, 'r', encoding='utf-8') as f:
         rule_list = yaml.load(f.read(), Loader=yaml.FullLoader)
@@ -125,13 +124,19 @@ def optimize_and_load_gguf(module: nn.Module, rule_file: str, gguf_path: str, mo
     model_config = translate_model_config(model_config)
 
     weights_loader = ModelLoaderFactory.create_loader(gguf_path)
+    # 打印gguf_loader的tensor信息
+    # with open("V3_Q4XS_log_tensor_info.txt", "w", encoding="utf-8") as f:
+    #     print(weights_loader.tensor_info, file=f)
+    # print(weights_loader.tensor_info)
+    # exit(0)
+
     with torch.device("meta"):
         inject(module, optimize_config, model_config, weights_loader)
     # pre load lm_head because its big inter result
     load_weights(module.lm_head, weights_loader, "lm_head.", device=default_device)
     load_weights(module, weights_loader, device=default_device)
     module.gguf_loader = weights_loader
-    del_meta(module)
+    del_meta(module) # 在load_weights中已经使用实际参数替换掉了meta参数，这是是一个保险操作，避免有遗漏的meta参数导致后续报错。
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
     elif torch.xpu.is_available():

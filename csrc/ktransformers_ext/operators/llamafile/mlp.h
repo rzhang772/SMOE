@@ -47,9 +47,9 @@ class MLP {
    public:
     MLP(MLPConfig);
     ~MLP();
-    void warm_up(Backend* backend);
-    void forward_many(int qlen, const void* input, void* output, Backend* backend);
-    void forward(int qlen, const void* input, void* output, Backend* backend);
+    void warm_up(KBackend* backend);
+    void forward_many(int qlen, const void* input, void* output, KBackend* backend);
+    void forward(int qlen, const void* input, void* output, KBackend* backend);
 
    private:
     MLPConfig config_;

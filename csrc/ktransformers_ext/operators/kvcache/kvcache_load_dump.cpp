@@ -12,7 +12,7 @@
 
 #include <chrono>
 
-void KVCache::load_kvcache(std::string tensor_file_path, Backend *backend) {
+void KVCache::load_kvcache(std::string tensor_file_path, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     std::ifstream ifs_tensor(tensor_file_path, std::ios::binary);
@@ -65,7 +65,7 @@ void KVCache::load_kvcache(std::string tensor_file_path, Backend *backend) {
     printf("time of load: %f s\n", diff.count());
 }
 void KVCache::dump_kvcache(int *block_table, int cache_total_len,
-                           std::string tensor_file_path, Backend *backend) {
+                           std::string tensor_file_path, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     std::ofstream ofs(tensor_file_path, std::ios::binary);

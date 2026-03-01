@@ -31,7 +31,7 @@ MLP::~MLP() {
     shared_mem_buffer.dealloc(this);
 }
 
-void MLP::warm_up(Backend *backend) {
+void MLP::warm_up(KBackend *backend) {
     std::vector<float> input_fp32(config_.hidden_size);
     std::vector<uint8_t> input(config_.hidden_size *
                                ggml_type_size(config_.hidden_type) /
@@ -48,7 +48,7 @@ void MLP::warm_up(Backend *backend) {
 
 static float act_fn(float x) { return x / (1.0f + expf(-x)); }
 
-void MLP::forward_many(int qlen, const void* input, void* output, Backend* backend) {
+void MLP::forward_many(int qlen, const void* input, void* output, KBackend* backend) {
     const void* gate_input_ptr;
     const void* up_input_ptr;
     if (config_.hidden_type == ggml_internal_get_type_traits(config_.gate_type).vec_dot_type && config_.hidden_type == ggml_internal_get_type_traits(config_.up_type).vec_dot_type) {
@@ -115,7 +115,7 @@ void MLP::forward_many(int qlen, const void* input, void* output, Backend* backe
     }
 }
 
-void MLP::forward(int qlen, const void* input, void* output, Backend* backend) {
+void MLP::forward(int qlen, const void* input, void* output, KBackend* backend) {
     if (qlen <= 0) {
         return;
     }

@@ -14,7 +14,7 @@
 
 void KVCache::attention_kvhead_(const uint16_t *q_in_data, ggml_fp16_t *output,
                                 float *attn_lse, int batch_size,
-                                Backend *backend) {
+                                KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     seq_len_ = config_.block_len;
@@ -32,7 +32,7 @@ void KVCache::attention_kvhead_(const uint16_t *q_in_data, ggml_fp16_t *output,
                                       max_block_num_after_retrieval_)) /
                           max_block_num_after_retrieval_;
             int block_id = task_id % max_block_num_after_retrieval_;
-            int thread_id = Backend::thread_local_id;
+            int thread_id = KBackend::thread_local_id;
 
             // If the block is out of the sequence length, skip it.
             if (cache_seqlens_[batch_id] / config_.block_len < block_id) {
@@ -355,7 +355,7 @@ void KVCache::attention_kvhead_(const uint16_t *q_in_data, ggml_fp16_t *output,
 
 void KVCache::attention_layer_(const uint16_t *q_in_data, ggml_fp16_t *output,
                                float *attn_lse, int batch_size,
-                               Backend *backend) {
+                               KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     seq_len_ = config_.block_len;
@@ -372,7 +372,7 @@ void KVCache::attention_layer_(const uint16_t *q_in_data, ggml_fp16_t *output,
                                       max_block_num_after_retrieval_)) /
                           max_block_num_after_retrieval_;
             int block_id = task_id % max_block_num_after_retrieval_;
-            int thread_id = Backend::thread_local_id;
+            int thread_id = KBackend::thread_local_id;
             // If the block is out of the sequence length, skip it.
             if (cache_seqlens_[batch_id] / config_.block_len < block_id) {
                 return;
@@ -695,7 +695,7 @@ void KVCache::attn(const ggml_fp16_t *q_in, ggml_fp16_t *output,
                    float *attn_lse, int layer_idx, int generate_token_idx,
                    int q_len, int batch_size, int max_block_num,
                    int *block_table, int *cache_seqlens, int pick_block_num,
-                   int init_block_num, int local_block_num, Backend *backend) {
+                   int init_block_num, int local_block_num, KBackend *backend) {
 
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
@@ -734,7 +734,7 @@ void KVCache::attn_with_kvcache(
     const ggml_fp16_t *q_in, const ggml_fp16_t *k_in, const ggml_fp16_t *v_in,
     ggml_fp16_t *output, float *attn_lse, int layer_idx, int generate_token_idx,
     int q_len, int batch_size, int max_block_num, int *block_table,
-    int *cache_seqlens, int topk, int local, Backend *backend) {
+    int *cache_seqlens, int topk, int local, KBackend *backend) {
     //    printf("attn_with_kvcache start\n");
     assert(q_len == 1);
     // Timer start
@@ -852,7 +852,7 @@ void KVCache::attn_initialize_layer_(int batch_size, int layer_idx,
 void KVCache::calculate_block_similarity_layer_(
     const uint16_t *q_in_data, int batch_size, int layer_idx, int q_len,
     int max_block_num, int *cache_seqlens, int init_block_num,
-    int local_block_num, int pick_block_num, Backend *backend) {
+    int local_block_num, int pick_block_num, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -1113,7 +1113,7 @@ void KVCache::retrieval_kvcache_layer_(const uint16_t *q_in_data,
                                        int pick_block_num, int q_len,
                                        int generate_token_idx, int batch_size,
                                        int layer_idx, int *cache_seqlens,
-                                       int &max_block_num, Backend *backend) {
+                                       int &max_block_num, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     max_block_num_after_retrieval_ = 0;
@@ -1190,7 +1190,7 @@ void KVCache::retrieval_kvcache_layer_(const uint16_t *q_in_data,
 void KVCache::calculate_sparsity_layer_(const uint16_t *q_in_data,
                                         float *attn_sparsity, int batch_size,
                                         int max_block_num, int *block_table,
-                                        int *cache_seqlens, Backend *backend
+                                        int *cache_seqlens, KBackend *backend
 
 ) {
     // Timer start
@@ -1207,7 +1207,7 @@ void KVCache::calculate_sparsity_layer_(const uint16_t *q_in_data,
             int head_id = (task_id % (config_.kv_head_num * max_block_num)) /
                           max_block_num;
             int block_id = task_id % max_block_num;
-            int thread_id = Backend::thread_local_id;
+            int thread_id = KBackend::thread_local_id;
             // If the block is out of the sequence length, skip it.
             if (cache_seqlens[batch_id] / config_.block_len < block_id) {
                 return;
@@ -1565,7 +1565,7 @@ void KVCache::retrieval_kvcache_kvhead_(const uint16_t *q_in_data,
                                         int pick_block_num, int q_len,
                                         int generate_token_idx, int batch_size,
                                         int layer_idx, int *cache_seqlens,
-                                        int &max_block_num, Backend *backend) {
+                                        int &max_block_num, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     max_block_num_after_retrieval_ = 0;
@@ -1661,7 +1661,7 @@ void KVCache::retrieval_kvcache_kvhead_(const uint16_t *q_in_data,
 void KVCache::calculate_sparsity_kvhead_(const uint16_t *q_in_data,
                                          float *attn_sparsity, int batch_size,
                                          int max_block_num, int *block_table,
-                                         int *cache_seqlens, Backend *backend) {
+                                         int *cache_seqlens, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     seq_len_ = config_.block_len;
@@ -1676,7 +1676,7 @@ void KVCache::calculate_sparsity_kvhead_(const uint16_t *q_in_data,
             int head_id = (task_id % (config_.kv_head_num * max_block_num)) /
                           max_block_num;
             int block_id = task_id % max_block_num;
-            int thread_id = Backend::thread_local_id;
+            int thread_id = KBackend::thread_local_id;
             // If the block is out of the sequence length, skip it.
             if (cache_seqlens[batch_id] / config_.block_len < block_id) {
                 return;
@@ -1996,7 +1996,7 @@ void KVCache::calculate_sparsity_kvhead_(const uint16_t *q_in_data,
 void KVCache::calculate_block_similarity_kvhead_(
     const uint16_t *q_in_data, int batch_size, int layer_idx, int q_len,
     int max_block_num, int *cache_seqlens, int init_block_num,
-    int local_block_num, int pick_block_num, Backend *backend) {
+    int local_block_num, int pick_block_num, KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     backend->do_work_stealing_job(
@@ -2153,7 +2153,7 @@ void KVCache::get_attn_sparsity(const ggml_fp16_t *q_in, float *attn_sparsity,
                                 int *block_table_origin,
                                 int *cache_seqlens_origin,
                                 int max_block_num_origin, int topk, int local,
-                                Backend *backend) {
+                                KBackend *backend) {
     // Timer start
     auto start = std::chrono::high_resolution_clock::now();
     layer_id_ = layer_idx;

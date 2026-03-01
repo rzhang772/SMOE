@@ -1,14 +1,15 @@
 import struct
 import warnings
 import numpy as np
+import nvtx
 import re
 import numpy.typing as npt
 from typing import Sequence
 import os
 from enum import IntEnum
 import torch
-if not torch.xpu.is_available():
-    import KTransformersOps
+# if not torch.xpu.is_available():
+#     import KTransformersOps
 from safetensors import safe_open
 from ktransformers.ktransformers_ext.triton.fp8gemm import fp8_gemm, act_quant, weight_dequant
 from ktransformers.util.custom_gguf import *
@@ -389,6 +390,15 @@ class GGUFLoader(ModelLoader):
         data = torch.from_numpy(data)
         return data, ggml_type
 
+    def get_expert_ggml_size(self, name):
+        name = translate_name_to_gguf(name)
+        t = self.tensor_info[name]
+        ggml_type = t["ggml_type"]
+        if ggml_type not in GGML_NAMES:
+            raise NotImplementedError(f"ggml_type {ggml_type} not implemented")
+        ggml_name = GGML_NAMES[ggml_type]
+        return GGML_BLOCK_SIZES[ggml_name] * (t["shape"][0] // GGML_ELEMENTS_PER_BLOCK[ggml_name])
+
     def load_expert_tensor(self, name, data, expert_id, elements_per_expert, device = "cuda", target_dtype = torch.get_default_dtype())->torch.Tensor:
         name = translate_name_to_gguf(name)
         t = self.tensor_info[name]
@@ -397,6 +407,7 @@ class GGUFLoader(ModelLoader):
         if ggml_type not in GGML_NAMES:
             raise NotImplementedError(f"ggml_type {ggml_type} not implemented")
         ggml_name = GGML_NAMES[ggml_type]
+        # print(f"Loading expert tensor {name}, expert_id: {expert_id}, elements_per_expert: {elements_per_expert}, ggml_type: {ggml_type}({ggml_name})")
 
         # TODO: experts may fused in quant block, split it
         assert elements_per_expert % GGML_ELEMENTS_PER_BLOCK[ggml_name] == 0, "experts may fused in quant block, please use CPU dequant"
@@ -405,6 +416,7 @@ class GGUFLoader(ModelLoader):
         block_size = GGML_BLOCK_SIZES[ggml_name]
         offset = expert_id * block_size * blocks_per_experts
         data = data[offset: offset + block_size * blocks_per_experts]
+        # return data
 
         if "cuda" in device.lower():
             values = GGML_DEQUANTIZE_GPU[ggml_name](data, device, target_dtype)
@@ -416,6 +428,38 @@ class GGUFLoader(ModelLoader):
             values = values.view(torch.bfloat16)
         values = values.view(shape[-2::-1])
 
+        return values
+    
+    def load_ggml_expert_from_weights(self, data, expert_id, elements_per_expert, ggml_type):
+        '''
+        从已加载的数据中抽取指定专家的权重
+        '''
+        if ggml_type not in GGML_NAMES:
+            raise NotImplementedError(f"ggml_type {ggml_type} not implemented")
+        ggml_name = GGML_NAMES[ggml_type]
+        # TODO: experts may fused in quant block, split it
+        assert elements_per_expert % GGML_ELEMENTS_PER_BLOCK[ggml_name] == 0, "experts may fused in quant block, please use CPU dequant"
+
+        blocks_per_experts = elements_per_expert // GGML_ELEMENTS_PER_BLOCK[ggml_name]
+        block_size = GGML_BLOCK_SIZES[ggml_name]
+        offset = expert_id * block_size * blocks_per_experts
+        data = data[offset: offset + block_size * blocks_per_experts]
+        if type(data) is torch.Tensor:
+            return data
+        return torch.from_numpy(data)
+    
+    @nvtx.annotate("dequantize_expert")
+    def dequantize_expert(self, expert_tensor, ggml_type, target_dtype = torch.get_default_dtype(), device = "cuda"):
+        # print(f"target_dtype: {target_dtype}, device: {device}")
+        if ggml_type not in GGML_NAMES:
+            raise NotImplementedError(f"ggml_type {ggml_type} not implemented")
+        ggml_name = GGML_NAMES[ggml_type]
+        if "cuda" in device.lower():
+            values = GGML_DEQUANTIZE_GPU_ONGPU[ggml_name](expert_tensor, device, target_dtype)
+        else:
+            values = GGML_DEQUANTIZE[ggml_name](expert_tensor)
+            values = torch.from_numpy(values.copy())
+        
         return values
 
     def load_gguf_tensor(self, name: str, device:str = "cpu", target_dtype = None)->torch.Tensor:

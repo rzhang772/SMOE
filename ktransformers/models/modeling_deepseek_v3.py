@@ -20,7 +20,6 @@
 """ PyTorch DeepSeek model."""
 import math
 import warnings
-import time
 import nvtx
 from typing import List, Optional, Tuple, Union
 
@@ -388,13 +387,17 @@ class DeepseekV3MLP(nn.Module):
         self.up_proj = nn.Linear(self.hidden_size, self.intermediate_size, bias=False)
         self.down_proj = nn.Linear(self.intermediate_size, self.hidden_size, bias=False)
         self.act_fn = ACT2FN[config.hidden_act]
+
     @nvtx.annotate("DeepseekV3MLP.forward")
     def forward(self, x, 
                 prompt_name: Optional[str] = None,
                 mode: Optional[str] = None, 
-                token_idx: Optional[torch.Tensor] = None):
+                token_idx: Optional[torch.Tensor] = None,
+                hit_rate: Optional[list[float]] = None,
+                next_layer: Optional[torch.Tensor] = None,
+                timebreak: Optional[dict] = None,):
         down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-        return down_proj
+        return down_proj # shape: [batch_size, seq_len, hidden_size]
 
 
 class MoEGate(nn.Module):
@@ -425,6 +428,7 @@ class MoEGate(nn.Module):
         import torch.nn.init as init
 
         init.kaiming_uniform_(self.weight, a=math.sqrt(5))
+
     @nvtx.annotate("MoEGate.forward")
     def forward(self, hidden_states):
         bsz, seq_len, h = hidden_states.shape
@@ -1172,9 +1176,11 @@ class DeepseekV3DecoderLayer(nn.Module):
         self.post_attention_layernorm = DeepseekV3RMSNorm(
             config.hidden_size, eps=config.rms_norm_eps
         )
+
     @nvtx.annotate("DeepseekV3DecoderLayer.forward")
     def forward(
         self,
+        next_layer,
         hidden_states: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
@@ -1185,6 +1191,8 @@ class DeepseekV3DecoderLayer(nn.Module):
         prompt_name: Optional[str] = None,
         mode: Optional[str] = None,
         token_idx: Optional[torch.LongTensor] = None,
+        hit_rate: Optional[list[float]] = None,
+        timebreak: Optional[dict] = False,
         **kwargs,
     ) -> Tuple[
         torch.FloatTensor, Optional[Tuple[torch.FloatTensor, torch.FloatTensor]]
@@ -1203,15 +1211,16 @@ class DeepseekV3DecoderLayer(nn.Module):
                 (see `past_key_values`).
             past_key_value (`Tuple(torch.FloatTensor)`, *optional*): cached past key and value projection states
         """
+        # assert next_layer is not None, "next_layer should be passed for DeepseekV3DecoderLayer"
         if "padding_mask" in kwargs:
             warnings.warn(
                 "Passing `padding_mask` is deprecated and will be removed in v4.37. Please make sure use `attention_mask` instead.`"
             )
+        
         residual = hidden_states
 
         hidden_states = self.input_layernorm(hidden_states)
 
-        attn_start = time.time()
         # Self Attention
         hidden_states, self_attn_weights, present_key_value = self.self_attn(
             hidden_states=hidden_states,
@@ -1224,17 +1233,13 @@ class DeepseekV3DecoderLayer(nn.Module):
             **kwargs,
         )
         hidden_states = residual + hidden_states
-        attn_end = time.time()
-        # print(f"Self Attention time: {(attn_end - attn_start) * 1000:.4f} ms")
 
-        mlp_start = time.time()
         # Fully Connected
+        # print(f"in DeecoderLayer next_layer: {next_layer}")
         residual = hidden_states
         hidden_states = self.post_attention_layernorm(hidden_states)
-        hidden_states = self.mlp(hidden_states, prompt_name, mode, token_idx)
+        hidden_states = self.mlp(hidden_states, prompt_name, mode, token_idx, hit_rate, next_layer, timebreak=timebreak)
         hidden_states = residual + hidden_states
-        mlp_end = time.time()
-        # print(f"MLP time: {(mlp_end - mlp_start) * 1000:.4f} ms")
 
         outputs = (hidden_states,)
 
@@ -1399,6 +1404,7 @@ class DeepseekV3Model(DeepseekV3PreTrainedModel):
         self.embed_tokens = value
 
     @add_start_docstrings_to_model_forward(DeepseekV3_INPUTS_DOCSTRING)
+    @nvtx.annotate("DeepseekV3Model.forward")
     def forward(
         self,
         input_ids: torch.LongTensor = None,
@@ -1450,8 +1456,6 @@ class DeepseekV3Model(DeepseekV3PreTrainedModel):
                 past_key_values = DynamicCache.from_legacy_cache(past_key_values)
             past_key_values_length = past_key_values.get_usable_length(seq_length)
 
-        # position_ids: prefill->None-> [0, 1, 2, ..., seq_length - 1] or ...chunk
-        # decode->[seq_len]
         if position_ids is None:
             device = input_ids.device if input_ids is not None else inputs_embeds.device
             position_ids = torch.arange(
@@ -1485,8 +1489,6 @@ class DeepseekV3Model(DeepseekV3PreTrainedModel):
         hidden_states = inputs_embeds
 
         # decoder layers
-        # If output_hidden_states is True, we will store all hidden states
-        # If output_attentions is True, we will store all attentions
         all_hidden_states = () if output_hidden_states else None
         all_self_attns = () if output_attentions else None
         next_decoder_cache = None
@@ -1673,6 +1675,8 @@ class DeepseekV3ForCausalLM(DeepseekV3PreTrainedModel, GenerationMixin):
         prompt_name: Optional[str] = None,
         mode: Optional[str] = None,
         token_idx: Optional[torch.LongTensor] = None,
+        hit_rate: Optional[list[float]] = None,
+        timebreak: Optional[dict] = None,
     ) -> Union[Tuple, CausalLMOutputWithPast]:
         r"""
         Args:
@@ -1728,6 +1732,8 @@ class DeepseekV3ForCausalLM(DeepseekV3PreTrainedModel, GenerationMixin):
             prompt_name=prompt_name,
             mode=mode,
             token_idx=token_idx,
+            hit_rate=hit_rate,
+            timebreak=timebreak,
         )
 
         hidden_states = outputs[0]
