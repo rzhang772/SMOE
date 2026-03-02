@@ -443,18 +443,6 @@ def prefill_and_generate(model, tokenizer, inputs, max_new_tokens=10000, use_cud
     total_time = time.time() - start_time
     tokens_generated = len(tokens)
     tokens_per_second = tokens_generated / total_time
-    # with open("list.json", "w") as f:
-    #     json.dump(hit_rate, f)
-    # 判断是否存在expirments文件夹，不存在则创建
-    # if not os.path.exists("./expirments/decode_tokens/"):
-    #     os.makedirs("./expirments/decode_tokens/")
-    # df = pd.DataFrame(decode_id_and_prob)
-    # df.to_csv(f"./expirments/decode_tokens/{dataset_name}_{file_name}.csv", index=False)
-    if not os.path.exists("./expirments/decode_timebreak/"):
-        os.makedirs("./expirments/decode_timebreak/")
-    df_timebreak = pd.DataFrame(timebreak)
-    method = 'tokenwise' if Config().prefetch_method == 0 else 'layerwise'
-    df_timebreak.to_csv(f"./expirments/decode_timebreak/{dataset_name}_{file_name}_timebreak_{method}.csv", index=False)
     
 
     print("")

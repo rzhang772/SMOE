@@ -169,7 +169,7 @@ def local_chat(
     #     os.system("clear")
 
 
-    def list_prompt_files_by_dataset(base_dir="./moe_analysis/test2"):
+    def list_prompt_files_by_dataset(base_dir="./test_prompt/"):
         dataset_files = {}
 
         for dataset_name in os.listdir(base_dir):
@@ -235,55 +235,6 @@ def local_chat(
 
             break
         break
-
-
-    # while True:
-    #     content = ""
-    #     if content.startswith('"""'):  # prefix """
-    #         # multi lines input
-    #         content = content[3:] + "\n"
-    #         while True:
-    #             line = input("")
-    #             if line.endswith('"""'):
-    #                 # end multi lines input
-    #                 line = line[:-3]  # suffix """
-    #                 if line:
-    #                     content += line + "\n"
-    #                 break
-    #             else:
-    #                 content += line + "\n"
-
-    #     if content == "":
-    #         if prompt_file != None:
-    #             content = open(prompt_file, "r").read()
-    #         else:
-    #             content = "Please write a piece of quicksort code in C++."
-    #     elif os.path.isfile(content):
-    #         content = open(content, "r").read()
-            
-    #     messages = [{"role": "user", "content": content}]
-    #     input_tensor = tokenizer.apply_chat_template(
-    #         messages, add_generation_prompt=True, return_tensors="pt"
-    #     )
-    #     if force_think:
-    #         token_thinks = torch.tensor([tokenizer.encode("<think>\\n",add_special_tokens=False)],device=input_tensor.device)
-    #         input_tensor = torch.cat(
-    #             [input_tensor, token_thinks], dim=1
-    #         )
-    #     if mode == 'long_context':
-    #         assert Config().long_context_config['max_seq_len'] > input_tensor.shape[1] + max_new_tokens, \
-    #         "please change max_seq_len in  ~/.ktransformers/config.yaml"
-        
-    #     if system != "Windows" and (config.architectures[0] == "DeepseekV2ForCausalLM" or config.architectures[0] == "DeepseekV3ForCausalLM") and flashinfer_enabled and get_compute_capability() >= 8 and device_manager.gpu_vendor == GPUVendor.NVIDIA:
-    #         generated = prefill_and_generate(
-    #             model, tokenizer, input_tensor.to(device), max_new_tokens, use_cuda_graph, mode = mode, force_think = force_think, chunk_size = chunk_size,
-    #             use_flashinfer_mla = True, num_heads = config.num_attention_heads, head_dim_ckv = config.kv_lora_rank, head_dim_kpe = config.qk_rope_head_dim, q_head_dim = config.qk_rope_head_dim + config.qk_nope_head_dim, prompt_name="test_topk"
-    #         )
-    #     else:
-    #         generated = prefill_and_generate(
-    #             model, tokenizer, input_tensor.to(device), max_new_tokens, use_cuda_graph, mode = mode, force_think = force_think, chunk_size = chunk_size, prompt_name="test_topk"
-    #         )
-    #     break
 
 
 if __name__ == "__main__":
