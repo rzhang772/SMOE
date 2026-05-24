@@ -63,3 +63,5 @@ Maximum number of experts handled by the GPU.
 
 This parameter prevents GPU overload in cases where the expert hit rate is too high, which may otherwise result in GPU workload being significantly higher than CPU workload.
 
+## Reminder: This repo gives the core token-wise prefetch and cache management implemention for Deepseek-V3 4bit.
+This repository currently only includes the core implementations of token-wise prefetch and cache management. The remaining techniques will be integrated into this project in the future. The current codebase is experimental and relatively rough. If needed, please refine and modify the implementation according to your requirments and the methodology described in the paper. You are also welcome to contact us for further discussion.
